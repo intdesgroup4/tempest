@@ -25,3 +25,6 @@ hs_err_pid*
 mapViewCache/
 out/
 tempest.iml
+
+# api key file
+resources/agro-api-key

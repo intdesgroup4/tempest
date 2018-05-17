@@ -8,6 +8,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -15,6 +16,7 @@ import java.net.URLConnection;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Make calls to the Agro API (https://www.agromonitoring.com/), with Current weather, Forecast weather and Current soil
@@ -146,6 +148,17 @@ public class AgroAPI {
 
         double rainfall = json.getAsJsonObject("rain").get("3h").getAsDouble();
         return new Weather(when, temp, hum, wSpeed, wDir, conds, rainfall);
+    }
+
+    /**
+     * Load the program's API key from a resource file inside the JAR.
+     *
+     * @return the API key, as a String
+     * @throws IOException if the file could not be read
+     */
+    public static String loadApiKey() throws IOException {
+        URL settingsUrl = AgroAPI.class.getResource(File.separator + "agro-api-key");
+        return new Scanner(settingsUrl.openStream()).nextLine();
     }
 
 }
