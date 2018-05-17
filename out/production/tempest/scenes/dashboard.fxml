@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.embed.swing.SwingNode?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="935.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherApp.Controller">
+    <children>
+        <ToolBar prefHeight="40.0" prefWidth="200.0">
+            <items>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard" />
+                <Pane prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <Button fx:id="editButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#editClicked" text="Edit" />
+                <Button fx:id="settingsButton" mnemonicParsing="false" text="Settings" />
+                <Button fx:id="addButton" mnemonicParsing="false" onAction="#addClicked" text="Add Field"/>
+            </items>
+        </ToolBar>
+        <ListView fx:id="dashboardList" prefHeight="200.0" prefWidth="200.0" />
+
+
+   </children>
+</VBox>
