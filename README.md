@@ -5,11 +5,18 @@ A weather app targeted at farmers, for Interaction Design coursework
 
 # Setup
 
+## Project Structure
+
 `src/` contains the bulk of the Java source code.
 `lib/` contains jar libraries that the source code is built with and requires to function.
 `resources/` contain resources that will be packed into the built JAR itself (e.g. images)
 
 Your build environment of choice should be setup to take this into account.
+
+
+## Agro API Key
+
+A file should be created at `resources/agro-api-key` with a single line containing the API key. This has been carefully placed in the .gitignore; please do not distribute it, as it could be very expensive!
 
 
 # Useful stuff
