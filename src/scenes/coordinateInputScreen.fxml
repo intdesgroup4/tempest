@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.embed.swing.SwingNode?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="935.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherApp.Controllers.CoordinateController">
+    <children>
+        <ToolBar prefHeight="40.0" prefWidth="200.0">
+            <items>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Input Coordinates" />
+                <Pane prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <Button fx:id="cancelButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#cancelClicked" text="cancel" />
+            </items>
+        </ToolBar>
+        <Label text="Please input the coordinates of your field" />
+        <Pane prefHeight="20"/>
+        <Label text="Lattitude:" />
+        <TextField fx:id="latInput"/>
+        <Label text="Longitude:"/>
+        <TextField fx:id="longInput"/>
+        <Label fx:id="errorLabel" text="Hello world \n hellow \n" visible="false" textFill="red"/>
+        <Button text="Ok" fx:id="doneButton" onAction="#doneClicked"/>
+
+    </children>
+</VBox>
