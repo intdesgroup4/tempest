@@ -46,7 +46,9 @@
             <Font size="23.0" />
          </font>
       </Text>
-      <Text fx:id="latitude" fill="WHITE" layoutX="14.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="genlat" />
-      <Text fx:id="longitude" fill="WHITE" layoutX="87.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="genlon" />
+      <Text fx:id="latitude" fill="WHITE" layoutX="59.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="genlat" />
+      <Text fx:id="longitude" fill="WHITE" layoutX="58.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="genlon" />
+      <Text fill="WHITE" layoutX="14.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lat:" />
+      <Text fill="WHITE" layoutX="14.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Long:" />
    </children>
 </Pane>

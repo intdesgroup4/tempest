@@ -32,6 +32,7 @@ public class Controller implements Initializable{
     @FXML private VBox dbContent = new VBox();
     @FXML private ScrollPane dashboardList = new ScrollPane(dbContent);
     private List<Field> fList;
+    private boolean editmode = false;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -44,8 +45,23 @@ public class Controller implements Initializable{
     }
 	
     @FXML
-    private void editClicked(){
-        System.out.println("edit clicked");
+    private void editClicked() throws IOException{
+        editmode = !editmode;
+        if(editmode) {
+        	//switch the scrollpane to contain the editfieldcapsules
+        	editButton.setText("Done");
+        	editupdate();
+        }
+        else {
+        	editButton.setText("Edit");
+        	//switch the scrollpane to contain the fieldcapsules again
+        	//send the flist off to the fieldstore
+        	
+        	//clear dbContent
+        	dbContent = new VBox();
+        	//update the scrollpane with the new edited fieldlist
+        	updatelist(fList);
+        }
     }
 
     @FXML
@@ -69,7 +85,8 @@ public class Controller implements Initializable{
     }
     
     private void updatelist(List<Field> fieldlist) throws IOException {
-    	//updates the dashboard's field list by reading through the inputed fieldlist	      
+    	//updates the dashboard's field list by reading through the inputed fieldlist
+    	fList = fieldlist;
     	for(Field field: fieldlist) {
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/FieldCapsuleTemplate.fxml"));
     		Node fieldCapNode = loader.load();
@@ -83,6 +100,26 @@ public class Controller implements Initializable{
 
 	public void setfList(List<Field> fList) {
 		this.fList = fList;
+	}
+	
+	public void editupdate() throws IOException {
+		//updates the edit panels
+		dbContent = new VBox();
+		for(Field field: fList) {
+    		FXMLLoader ploader = new FXMLLoader(getClass().getResource("/scenes/editFieldCap.fxml"));
+    		Node editCapNode = ploader.load();
+    		dbContent.getChildren().add(editCapNode);
+    		EditFieldCapController capController = ploader.<EditFieldCapController>getController();    
+            capController.setField(field);
+            capController.passlist(fList);
+            capController.passparent(this);
+    	}
+    	dashboardList.setContent(dbContent);
+	}
+	
+	public void removeFarm(Field field) throws IOException {
+		fList.remove(field);
+		editupdate();
 	}
 
 }
