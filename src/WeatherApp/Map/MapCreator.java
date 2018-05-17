@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Set;
 
 public class MapCreator {
-    static public void createAndSetMapViewer(final SwingNode swingNode) {
+    static public void createAndSetMapViewer(final SwingNode swingNode, DefaultWaypoint waypoint) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -38,13 +38,15 @@ public class MapCreator {
                 final JXMapViewer mapViewer = new JXMapViewer();
                 mapViewer.setTileFactory(tileFactory);
 
-                GeoPosition cambridge = new GeoPosition(52.20433529134397, 0.11675804138182588);
+
 
 
 
                 // Set the focus
                 mapViewer.setZoom(7);
-                mapViewer.setAddressLocation(cambridge);
+                mapViewer.setAddressLocation(waypoint.getPosition());
+
+
 
                 // Add interactions
                 MouseInputListener mia = new PanMouseInputListener(mapViewer);
@@ -58,7 +60,7 @@ public class MapCreator {
                 mapViewer.addKeyListener(new PanKeyListener(mapViewer));
 
                 //Waypoint stuff bois
-                DefaultWaypoint waypoint = new DefaultWaypoint(cambridge);
+                //
                 Set<Waypoint> waypoints = new HashSet<>();
                 waypoints.add(waypoint);
 
@@ -85,5 +87,6 @@ public class MapCreator {
                 mapViewer.repaint();
             }
         });
+        swingNode.requestFocus();
     }
 }

@@ -2,8 +2,10 @@ package WeatherApp.service;
 
 import WeatherApp.model.Field;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 
+import java.io.*;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +25,25 @@ public class FieldStore extends Store {
 
     public FieldStore(Path path) {
         super(path);
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader(path.toFile()));
+            String line;
+            while((line = reader.readLine()) != null) {
+                System.out.println(line);
+                JsonParser parser = new JsonParser();
+                JsonObject fieldJson = (JsonObject) parser.parse(line);
+
+                Field field = new Field(fieldJson.get("name").getAsString(),
+                        fieldJson.get("latitude").getAsDouble(),
+                        fieldJson.get("longitude").getAsDouble());
+
+                fields.add(field);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(fields.size());
     }
 
     /**

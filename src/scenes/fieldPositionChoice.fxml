@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.embed.swing.SwingNode?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="935.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherApp.Controllers.FieldPositionChoiceController">
+    <children>
+        <ToolBar prefHeight="40.0" prefWidth="200.0">
+            <items>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add a field" />
+                <Pane prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <Button fx:id="cancelButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#cancelClicked" text="Cancel" />
+            </items>
+        </ToolBar>
+        <Label text="Please choose how you would like to add a field" />
+        <Button fx:id="mapButton" text="Choose on map" onAction="#mapClicked" />
+        <Button fx:id="coordButton" text="Input coordinates" onAction="#coordClicked"/>
+
+    </children>
+</VBox>
