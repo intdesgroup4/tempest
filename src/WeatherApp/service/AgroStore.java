@@ -6,6 +6,7 @@ import WeatherApp.model.Weather;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
+import java.io.IOException;
 import java.nio.file.Path;
 import java.time.Duration;
 import java.time.Instant;
@@ -21,7 +22,6 @@ import java.util.stream.Collectors;
  * - Persistence of Field objects (see Store for more info)
  * ... and should be the main way of accessing weather data of Fields throughout UI code.
  *
- * TODO consider storing times here instead of with the actual weather data classes
  * TODO write gson code to serialise/deserialise
  * TODO find a way to garbage collect irrelevant data (e.g. deleted Fields, past weather data)
  */
@@ -185,11 +185,22 @@ public class AgroStore extends Store {
      * @param field
      */
     private void refresh(Field field) {
-        // fetch data from API
-        Soil soil = api.getCurrentSoil(field.getLat(), field.getLng());
+        Soil soil;
 
-        Weather current = api.getCurrentWeather(field.getLat(), field.getLng());
-        List<Weather> forecast = api.getForecastWeather(field.getLat(), field.getLng());
+        Weather current;
+        List<Weather> forecast;
+
+        try {
+            // fetch data from API
+            soil = api.getCurrentSoil(field.getLat(), field.getLng());
+
+            current = api.getCurrentWeather(field.getLat(), field.getLng());
+            forecast = api.getForecastWeather(field.getLat(), field.getLng());
+        } catch (IOException io) {
+            System.err.println("Failed to contact Weather API to refresh data");
+            io.printStackTrace();
+            return; // nothing more we can do here
+        }
 
         // merge weather into one list
         forecast.add(0, current);

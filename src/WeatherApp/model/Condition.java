@@ -3,6 +3,10 @@ package WeatherApp.model;
 import javafx.scene.image.Image;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.stream.Collectors;
 
 /**
  * Represents the condition in an API response describing weather.
@@ -134,7 +138,8 @@ public enum Condition {
      * @return The Image represented by the icon of the provided name
      */
     private static Image loadIcon(String name) {
-        return new Image(String.format(File.pathSeparator + "agro-api-icons" + File.pathSeparator + "%s.png", name));
+        String path = String.format(File.separator + "agro-api-icons" + File.separator + "%s.png", name);
+        return new Image(Condition.class.getResource(path).toString());
     }
 
     /**

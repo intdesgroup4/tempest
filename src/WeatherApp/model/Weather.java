@@ -1,6 +1,7 @@
 package WeatherApp.model;
 
 import java.time.Instant;
+import java.util.List;
 
 /**
  * A representation of the Weather of a location, whether current or a predicted forecast, including the time it is
@@ -57,19 +58,19 @@ public class Weather {
      *
      * This is useful for determining the icon shown and providing textual descriptions.
      */
-    private final Condition condition;
+    private final List<Condition> conditions;
 
-    public Weather(Instant when, double temp, int hum, double wSpeed, double wDir, Condition cond) {
-        this(when, temp, hum, wSpeed, wDir, cond, Double.NaN);
+    public Weather(Instant when, double temp, int hum, double wSpeed, double wDir, List<Condition> conds) {
+        this(when, temp, hum, wSpeed, wDir, conds, Double.NaN);
     }
 
-    public Weather(Instant when, double temp, int hum, double wSpeed, double wDir, Condition cond, double rainfall) {
+    public Weather(Instant when, double temp, int hum, double wSpeed, double wDir, List<Condition> conds, double rainfall) {
         this.when = when;
         this.temperature = temp;
         this.humidity = hum;
         this.windSpeed = wSpeed;
         this.windDirection = wDir;
-        this.condition = cond;
+        this.conditions = conds;
         this.rainfall = rainfall;
     }
 
@@ -93,8 +94,8 @@ public class Weather {
         return windDirection;
     }
 
-    public Condition getCondition() {
-        return condition;
+    public List<Condition> getConditions() {
+        return conditions;
     }
 
     public double getRainfall() {
