@@ -8,6 +8,7 @@ import org.jxmapviewer.viewer.GeoPosition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 
 public class FieldCapController implements Initializable{
@@ -28,14 +29,37 @@ public class FieldCapController implements Initializable{
 		fName.setText("test");
 	}
 	
-	public void setcoords(GeoPosition gp) {
-		latitude.setText(Double.toString(gp.getLatitude()));
-		longitude.setText(Double.toString(gp.getLongitude()));
+	public void setcoords(double lat, double lon) {
+		latitude.setText(Double.toString(lat));
+		longitude.setText(Double.toString(lon));
 	}
 
 	public void setName(String txt) {
 		fName.setText(txt);
 	}
 	
-
+	public void setRain(String txt) {
+		fRain.setText(txt);
+	}
+	
+	public void setRainUnit(String txt) {
+		fRainUnit.setText(txt);
+	}
+	
+	public void setTemp(String txt) {
+		fTemp.setText(txt);
+	}
+	
+	public void setTempUnit(String txt) {
+		fTempUnit.setText(txt);
+	}
+	
+	public void setWindspeed(String txt) {
+		fWindspeed.setText(txt);
+	}
+	
+	public void setWindspeedUnit(String txt) {
+		fWindspeedUnit.setText(txt);
+	}
+	
 }

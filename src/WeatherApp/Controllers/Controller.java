@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,21 +17,36 @@ import javafx.stage.Stage;
 import org.jxmapviewer.viewer.GeoPosition;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 
-public class Controller {
-    @FXML
-    private Button editButton;
-    @FXML
-    private Button settingsButton;
-    @FXML
-    private Button addButton;
-    @FXML
-    private VBox dbContent = new VBox();
-    @FXML
-    private ScrollPane dashboardList = new ScrollPane(dbContent);
+public class Controller implements Initializable{
+    @FXML private Button editButton;
+    @FXML private Button settingsButton;
+    @FXML private Button addButton;
+    @FXML private VBox dbContent = new VBox();
+    @FXML private ScrollPane dashboardList = new ScrollPane(dbContent);
+    private List<Field> fList;
 
-
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		//TESTCODE:
+		List<Field> dummylist = new ArrayList<>();
+		for(int i=0; i<10;i++) {
+			Field fd = new Field("Garry " + i, i,i);
+			dummylist.add(fd);
+		}
+		try {
+			this.updatelist(dummylist);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+	
     @FXML
     private void editClicked(){
         System.out.println("edit clicked");
@@ -52,7 +68,25 @@ public class Controller {
         dbContent.getChildren().add(fieldCapNode);
         dashboardList.setContent(dbContent);
         FieldCapController capController = loader.<FieldCapController>getController();
-        capController.setcoords(new GeoPosition(field.getLat(), field.getLng()));
+        capController.setcoords(field.getLat(), field.getLng());
         capController.setName(field.getName());
     }
+    
+    private void updatelist(List<Field> fieldlist) throws IOException {
+    	//updates the dashboard's field list by reading through the inputed fieldlist	      
+    	for(Field field: fieldlist) {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/FieldCapsuleTemplate.fxml"));
+    		Node fieldCapNode = loader.load();
+    		dbContent.getChildren().add(fieldCapNode);
+    		FieldCapController capController = loader.<FieldCapController>getController();
+            capController.setcoords(field.getLat(), field.getLng());
+            capController.setName(field.getName());	
+    	}
+    	dashboardList.setContent(dbContent);
+    }
+
+	public void setfList(List<Field> fList) {
+		this.fList = fList;
+	}
+
 }
