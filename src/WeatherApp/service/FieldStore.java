@@ -24,6 +24,12 @@ public class FieldStore extends Store {
 
     public FieldStore(Path path) {
         super(path);
+
+        // deserialise may not be called on initial run as the file may not exist
+        // we can't initialise in the variable definition itself as, bizarrely, it is called before this code but after the super constructor
+        if (fields == null) {
+            fields = new ArrayList<>();
+        }
     }
 
     /**

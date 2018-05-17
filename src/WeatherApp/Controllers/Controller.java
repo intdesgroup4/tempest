@@ -35,7 +35,7 @@ public class Controller implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-        FieldStore store = new FieldStore(Paths.get("src/stores/fieldStore.json"));
+        FieldStore store = new FieldStore(Paths.get("stores/fieldStore.json"));
         try {
             updatelist(store.getFields());
         } catch (IOException e) {

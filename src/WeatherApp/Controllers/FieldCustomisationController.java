@@ -53,7 +53,7 @@ public class FieldCustomisationController {
         //controller.addFarm(new Field(nameInput.getText(), loc.getLatitude(), loc.getLongitude()));
 
         Field field = new Field(nameInput.getText(), loc.getLatitude(), loc.getLongitude());
-        FieldStore fs = new FieldStore(Paths.get("src/stores/fieldStore.json"));
+        FieldStore fs = new FieldStore(Paths.get("stores/fieldStore.json"));
         fs.getFields().add(field);
         fs.save();
 

@@ -28,3 +28,6 @@ tempest.iml
 
 # api key file
 resources/agro-api-key
+
+# data we're storing
+stores/
