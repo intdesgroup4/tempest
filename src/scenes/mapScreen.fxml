@@ -6,12 +6,13 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.embed.swing.SwingNode?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="935.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherApp.MapController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="935.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherApp.Controllers.MapController">
     <children>
         <ToolBar prefHeight="40.0" prefWidth="200.0">
             <items>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Map" />
                 <Pane prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelClicked" text="Cancel" />
             </items>
         </ToolBar>
         <StackPane fx:id="pane" prefWidth="Infinity" prefHeight="600">
@@ -21,8 +22,7 @@
         </StackPane>
         <ToolBar prefHeight="40.0" prefWidth="200.0">
             <items>
-                <Button fx:id="cancelButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#cancelClicked" text="Cancel" />
-                <Button fx:id="doneButton" text="Ok" mnemonicParsing="false"/>
+                <Button fx:id="doneButton" text="Ok" mnemonicParsing="false" onAction="#doneClicked"/>
             </items>
         </ToolBar>
     </children>

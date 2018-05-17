@@ -1,4 +1,4 @@
-package WeatherApp;
+package WeatherApp.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -31,6 +31,10 @@ public class FieldCapController implements Initializable{
 	public void setcoords(GeoPosition gp) {
 		latitude.setText(Double.toString(gp.getLatitude()));
 		longitude.setText(Double.toString(gp.getLongitude()));
+	}
+
+	public void setName(String txt) {
+		fName.setText(txt);
 	}
 	
 
