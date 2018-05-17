@@ -14,9 +14,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Controller {
+	private List<FieldCapsule> fieldlist = new ArrayList<>();
     @FXML private Button editButton;
     @FXML private Button settingsButton;
     @FXML private Button addButton;
@@ -31,16 +34,17 @@ public class Controller {
     @FXML
     private void addClicked() throws IOException{
     	System.out.println("add clicked");
-    	Node fieldcap = FXMLLoader.load(getClass().getResource("../scenes/FieldCapsuleTemplate.fxml"));
-    	dbcontent.getChildren().add(fieldcap);
-    	dashboardList.setContent(dbcontent);
-    	/*
+    	/* Get coords from map 
         Stage stage = (Stage)dashboardList.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("../scenes/mapScreen.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
         */
+    	Node fieldcapnode = FXMLLoader.load(getClass().getResource("../scenes/FieldCapsuleTemplate.fxml"));
+    	dbcontent.getChildren().add(fieldcapnode);
+    	dashboardList.setContent(dbcontent);
+    	
         
     }
 }
