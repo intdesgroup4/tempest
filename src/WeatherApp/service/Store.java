@@ -29,7 +29,7 @@ public abstract class Store {
     public Store(Path path) {
         this.path = path;
 
-        this.load();
+//        this.load();
     }
 
     /**

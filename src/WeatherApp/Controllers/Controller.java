@@ -1,6 +1,7 @@
 package WeatherApp.Controllers;
 
 import WeatherApp.model.Field;
+import WeatherApp.service.FieldStore;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import org.jxmapviewer.viewer.GeoPosition;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -33,18 +35,13 @@ public class Controller implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		//TESTCODE:
-		List<Field> dummylist = new ArrayList<>();
-		for(int i=0; i<10;i++) {
-			Field fd = new Field("Garry " + i, i,i);
-			dummylist.add(fd);
-		}
-		try {
-			this.updatelist(dummylist);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
+	    System.out.println("hello worlds");
+        FieldStore store = new FieldStore(Paths.get("src/stores/fieldStore.json"));
+        try {
+            updatelist(store.getFields());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 	
     @FXML
