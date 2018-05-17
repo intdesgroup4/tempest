@@ -1,4 +1,6 @@
-{"name":"kings","latitude":52.20433529134397,"longitude":0.11675804138182588}
-{"name":"queens","latitude":52.20290554674096,"longitude":0.11586606502532959}
-{"name":"homerton","latitude":52.18547087658485,"longitude":0.13593435287475586}
-{"name":"girton","latitude":52.24125614966341,"longitude":0.08274078369140625}
+[
+  {"name":"kings","latitude":52.20433529134397,"longitude":0.11675804138182588},
+  {"name":"queens","latitude":52.20290554674096,"longitude":0.11586606502532959},
+  {"name":"homerton","latitude":52.18547087658485,"longitude":0.13593435287475586},
+  {"name":"girton","latitude":52.24125614966341,"longitude":0.08274078369140625}
+]

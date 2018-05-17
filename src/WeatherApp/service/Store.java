@@ -1,7 +1,8 @@
 package WeatherApp.service;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 
 import java.io.IOException;
@@ -29,7 +30,7 @@ public abstract class Store {
     public Store(Path path) {
         this.path = path;
 
-//        this.load();
+        this.load();
     }
 
     /**
@@ -39,7 +40,7 @@ public abstract class Store {
      */
     public void load() {
         try (Reader reader = Files.newBufferedReader(path)){
-            this.deserialise(new JsonReader(reader));
+            this.deserialise(new JsonParser().parse(reader));
         } catch (IOException e) {
             System.err.println(String.format("Couldn't open file '%s' to read; does it exist?", path.toString()));
             e.printStackTrace();
@@ -68,13 +69,13 @@ public abstract class Store {
      *
      * @return
      */
-    protected abstract JsonObject serialise();
+    protected abstract JsonElement serialise();
 
     /**
      * Deserialise state and load into this object.
      *
      * @param json
      */
-    protected abstract void deserialise(JsonReader json);
+    protected abstract void deserialise(JsonElement json);
 
 }

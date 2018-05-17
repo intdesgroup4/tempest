@@ -35,14 +35,13 @@ public class Controller implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-	    System.out.println("hello worlds");
         FieldStore store = new FieldStore(Paths.get("src/stores/fieldStore.json"));
         try {
             updatelist(store.getFields());
         } catch (IOException e) {
             e.printStackTrace();
         }
-	}
+    }
 	
     @FXML
     private void editClicked(){

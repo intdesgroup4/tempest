@@ -3,8 +3,7 @@ package WeatherApp.service;
 import WeatherApp.model.Field;
 import WeatherApp.model.Soil;
 import WeatherApp.model.Weather;
-import com.google.gson.JsonObject;
-import com.google.gson.stream.JsonReader;
+import com.google.gson.JsonElement;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -147,12 +146,12 @@ public class AgroStore extends Store {
     }
 
     @Override
-    protected JsonObject serialise() {
+    protected JsonElement serialise() {
         throw new IllegalStateException("Not yet implemented");
     }
 
     @Override
-    protected void deserialise(JsonReader json) {
+    protected void deserialise(JsonElement json) {
         throw new IllegalStateException("Not yet implemented");
     }
 

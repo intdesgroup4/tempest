@@ -1,6 +1,7 @@
 package WeatherApp.Controllers;
 
 import WeatherApp.model.Field;
+import WeatherApp.service.FieldStore;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -51,16 +52,10 @@ public class FieldCustomisationController {
         Controller controller = loader.<Controller>getController();
         //controller.addFarm(new Field(nameInput.getText(), loc.getLatitude(), loc.getLongitude()));
 
-        JsonObject field = new JsonObject();
-        field.addProperty("name",nameInput.getText());
-        field.addProperty("latitude",loc.getLatitude());
-        field.addProperty("longitude", loc.getLongitude());
-
-        try (Writer writer = new FileWriter("src/stores/fieldStore.json",true)) {
-            Gson gson = new GsonBuilder().create();
-            gson.toJson(field, writer);
-            writer.append('\n');
-        }
+        Field field = new Field(nameInput.getText(), loc.getLatitude(), loc.getLongitude());
+        FieldStore fs = new FieldStore(Paths.get("src/stores/fieldStore.json"));
+        fs.getFields().add(field);
+        fs.save();
 
         Parent root = loader.load();
         Scene scene = new Scene(root);

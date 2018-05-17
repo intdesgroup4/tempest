@@ -1,11 +1,10 @@
 package WeatherApp.service;
 
 import WeatherApp.model.Field;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
 
-import java.io.*;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,29 +20,10 @@ import java.util.List;
  */
 public class FieldStore extends Store {
 
-    private final List<Field> fields = new ArrayList<>();  // TODO initialise in overridden abstract Store methods
+    private List<Field> fields;  // TODO initialise in overridden abstract Store methods
 
     public FieldStore(Path path) {
         super(path);
-        BufferedReader reader;
-        try {
-            reader = new BufferedReader(new FileReader(path.toFile()));
-            String line;
-            while((line = reader.readLine()) != null) {
-                System.out.println(line);
-                JsonParser parser = new JsonParser();
-                JsonObject fieldJson = (JsonObject) parser.parse(line);
-
-                Field field = new Field(fieldJson.get("name").getAsString(),
-                        fieldJson.get("latitude").getAsDouble(),
-                        fieldJson.get("longitude").getAsDouble());
-
-                fields.add(field);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(fields.size());
     }
 
     /**
@@ -57,13 +37,36 @@ public class FieldStore extends Store {
     }
 
     @Override
-    protected JsonObject serialise() {
-        throw new IllegalStateException("Not yet implemented");
+    protected JsonElement serialise() {
+        JsonArray jFields = new JsonArray();
+
+        for (Field field : fields) {
+            JsonObject jField = new JsonObject();
+            jField.addProperty("name", field.getName());
+            jField.addProperty("latitude", field.getLat());
+            jField.addProperty("longitude", field.getLng());
+            jFields.add(jField);
+        }
+
+        return jFields;
     }
 
     @Override
-    protected void deserialise(JsonReader json) {
-        throw new IllegalStateException("Not yet implemented");
+    protected void deserialise(JsonElement json) {
+        if (fields == null) {
+            fields = new ArrayList<>();
+        } else {
+            fields.clear();
+        }
+
+        for (JsonElement jElement : json.getAsJsonArray()) {
+            JsonObject jField = jElement.getAsJsonObject();
+            Field field = new Field(jField.get("name").getAsString(),
+                    jField.get("latitude").getAsDouble(),
+                    jField.get("longitude").getAsDouble());
+
+            fields.add(field);
+        }
     }
 
 }
