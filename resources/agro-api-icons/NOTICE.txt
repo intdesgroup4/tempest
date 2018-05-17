@@ -1,3 +1,4 @@
 These icons originate from OpenWeatherMap.org under the Creative Commons Attribution-ShareAlike 4.0 Generic License.
+Derivations from the API are described in the Weather, Soil & Field class.
 
 This license is included.
