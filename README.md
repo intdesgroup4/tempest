@@ -1,8 +1,19 @@
 # tempest
+
 A weather app targeted at farmers, for Interaction Design coursework
 
 
+# Setup
+
+`src/` contains the bulk of the Java source code.
+`lib/` contains jar libraries that the source code is built with and requires to function.
+`resources/` contain resources that will be packed into the built JAR itself (e.g. images)
+
+Your build environment of choice should be setup to take this into account.
+
+
 # Useful stuff
+
 The JDK I am using:
 
 http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
