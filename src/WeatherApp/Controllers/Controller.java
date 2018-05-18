@@ -2,8 +2,6 @@ package WeatherApp.Controllers;
 
 import WeatherApp.model.Field;
 import WeatherApp.service.FieldStore;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,16 +9,14 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import org.jxmapviewer.viewer.GeoPosition;
 
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -82,8 +78,7 @@ public class Controller implements Initializable{
         dbContent.getChildren().add(fieldCapNode);
         dashboardList.setContent(dbContent);
         FieldCapController capController = loader.<FieldCapController>getController();
-        capController.setcoords(field.getLat(), field.getLng());
-        capController.setName(field.getName());
+        capController.setField(field);
     }
     
     private void updatelist(List<Field> fieldlist) throws IOException {
@@ -94,8 +89,7 @@ public class Controller implements Initializable{
     		Node fieldCapNode = loader.load();
     		dbContent.getChildren().add(fieldCapNode);
     		FieldCapController capController = loader.<FieldCapController>getController();
-            capController.setcoords(field.getLat(), field.getLng());
-            capController.setName(field.getName());	
+            capController.setField(field);
     	}
     	dashboardList.setContent(dbContent);
     }

@@ -5,6 +5,9 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import WeatherApp.Main;
+import WeatherApp.Editmode.Colourchooser;
 import WeatherApp.model.Field;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,15 +15,23 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class EditFieldCapController implements Initializable{
 	
 	@FXML private Button mUp;
 	@FXML private Button mDown;
 	@FXML private Button deleteButton;
-	@FXML private Button editImageButton;
+	@FXML private Button editColourButton;
 	@FXML private TextField defName;
+	@FXML private Pane colourPane;
 	//the field that this edit panel corresponds to
 	private Field field;
 	//the current list of fields in the dashboard
@@ -75,8 +86,15 @@ public class EditFieldCapController implements Initializable{
 		parent.editupdate();
 	}
 	
-	public void imageClicked() {
-		//TODO: image editing
+	public void colourClicked() throws Exception {
+		Colourchooser cc = new Colourchooser();
+		cc.setField(field);
+		cc.passcontroller(parent);
+		Stage colourStage = new Stage();
+		//prevents the user from clicking away from the colourchooser
+		colourStage.initOwner(Main.getPrimaryStage());
+		colourStage.initModality(Modality.APPLICATION_MODAL);
+		cc.start(colourStage);
 	}
 	
 	public void nameEdit() {
@@ -86,6 +104,7 @@ public class EditFieldCapController implements Initializable{
 	public void setField(Field field) {
 		this.field = field;
 		this.defName.setText(field.getName());
+		colourPane.setBackground(new Background(new BackgroundFill(field.getColour(), null, null)));
 		movementbuttons();
 	}
 

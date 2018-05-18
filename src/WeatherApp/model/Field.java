@@ -1,6 +1,6 @@
 package WeatherApp.model;
 
-import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 
 /**
  * A representation of a farmer's real-world field.
@@ -27,11 +27,11 @@ public class Field {
     private double lng;
 
     /**
-     * A JavaFX image to use as an icon within a GUI.
+     * A JavaFX colour to use as an icon within a GUI.
      *
-     * OPTIONAL - may be null
+     * DEFAULT to white
      */
-    private Image image = null;
+    private Color colour = Color.WHITE;
 
     public Field(String name, double lat, double lng) {
         this.name = name;
@@ -39,9 +39,9 @@ public class Field {
         this.lng = lng;
     }
 
-    public Field(String name, double lat, double lng, Image image) {
+    public Field(String name, double lat, double lng, Color colour) {
         this(name, lat, lng);
-        this.image = image;
+        this.colour = colour;
     }
 
     public String getName() {
@@ -68,12 +68,12 @@ public class Field {
         this.lng = lng;
     }
 
-    public Image getImage() {
-        return image;
-    }
+	public Color getColour() {
+		return colour;
+	}
 
-    public void setImage(Image image) {
-        this.image = image;
-    }
+	public void setColour(Color colour) {
+		this.colour = colour;
+	}
 
 }
