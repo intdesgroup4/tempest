@@ -50,10 +50,12 @@ public class Controller implements Initializable{
         if(editmode) {
         	//switch the scrollpane to contain the editfieldcapsules
         	editButton.setText("Done");
+        	addButton.setVisible(false);
         	editupdate();
         }
         else {
         	editButton.setText("Edit");
+        	addButton.setVisible(true);
         	//switch the scrollpane to contain the fieldcapsules again
         	//send the flist off to the fieldstore
         	
