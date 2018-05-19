@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -47,10 +48,12 @@ public class Controller implements Initializable{
         if(editmode) {
         	//switch the scrollpane to contain the editfieldcapsules
         	editButton.setText("Done");
+        	addButton.setVisible(false);
         	editupdate();
         }
         else {
         	editButton.setText("Edit");
+        	addButton.setVisible(true);
         	//switch the scrollpane to contain the fieldcapsules again
         	//send the flist off to the fieldstore
         	
@@ -78,8 +81,7 @@ public class Controller implements Initializable{
         dashboardList.setContent(dbContent);
 
         FieldCapController capController = loader.<FieldCapController>getController();
-        capController.setcoords(field.getLat(), field.getLng());
-        capController.setName(field.getName());
+        capController.setField(field);
     }
     
     private void updatelist(List<Field> fieldlist) throws IOException {
@@ -114,8 +116,7 @@ public class Controller implements Initializable{
     		dbContent.getChildren().add(fieldCapNode);
 
     		FieldCapController capController = loader.<FieldCapController>getController();
-            capController.setcoords(field.getLat(), field.getLng());
-            capController.setName(field.getName());	
+            capController.setField(field);
     	}
 
     	dashboardList.setContent(dbContent);

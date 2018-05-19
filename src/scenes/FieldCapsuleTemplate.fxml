@@ -7,12 +7,11 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="162.0" prefWidth="600.0" style="-fx-background-color: #919191;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherApp.Controllers.FieldCapController">
    <children>
-      <Text fx:id="fName" fill="WHITE" layoutX="14.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field Name" wrappingWidth="144.99999582767487">
+      <Text fx:id="fName" fill="WHITE" layoutX="12.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Field Name" wrappingWidth="165.99999368190765">
          <font>
-            <Font size="28.0" />
+            <Font size="31.0" />
          </font>
       </Text>
-      <ImageView fx:id="fImage" fitHeight="56.0" fitWidth="145.0" layoutX="14.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="130.0" fitWidth="69.0" layoutX="177.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
       <Text fx:id="fTemp" fill="WHITE" layoutX="231.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17" wrappingWidth="76.85302734375">
          <font>
@@ -46,9 +45,10 @@
             <Font size="23.0" />
          </font>
       </Text>
-      <Text fx:id="latitude" fill="WHITE" layoutX="59.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="genlat" />
-      <Text fx:id="longitude" fill="WHITE" layoutX="58.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="genlon" />
-      <Text fill="WHITE" layoutX="14.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lat:" />
-      <Text fill="WHITE" layoutX="14.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Long:" />
+      <Text fx:id="latitude" fill="WHITE" layoutX="59.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="genlat" />
+      <Text fx:id="longitude" fill="WHITE" layoutX="58.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="genlon" />
+      <Text fill="WHITE" layoutX="14.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lat:" />
+      <Text fill="WHITE" layoutX="14.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Long:" />
+      <Pane fx:id="fColour" layoutX="9.0" layoutY="138.0" prefHeight="17.0" prefWidth="166.0" />
    </children>
 </Pane>

@@ -1,26 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<?import javafx.embed.swing.SwingNode?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="935.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherApp.Controllers.FieldCustomisationController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="935.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherApp.Controllers.FieldCustomisationController">
     <children>
         <ToolBar prefHeight="40.0" prefWidth="200.0">
             <items>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customise Field Properties" />
-                <Pane prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                <Pane prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                    <Button fx:id="doneButton" layoutX="343.0" layoutY="3.0" onAction="#doneClicked" text="Done" />
+               </children></Pane>
                 <Button fx:id="cancelButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#cancelClicked" text="Cancel" />
             </items>
         </ToolBar>
         <Label text="Please choose how you would like to add a field" />
         <StackPane prefHeight="20" />
         <Label text="Please input a name for your field" />
-        <TextField fx:id="nameInput"/>
-        <StackPane prefHeight="40"/>
-        <Button text="Done" fx:id="doneButton" onAction="#doneClicked"/>
+        <TextField fx:id="nameInput" />
+      <Label alignment="TOP_LEFT" text="Please choose a colour for your field" />
+      <HBox fx:id="colourBox" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="colourButton" alignment="CENTER" mnemonicParsing="false" onAction="#colourClicked" prefHeight="120.0" prefWidth="216.0" text="Choose Colour" />
+         </children>
+      </HBox>
+        <StackPane alignment="TOP_LEFT" prefHeight="62.0" prefWidth="600.0" />
 
     </children>
 </VBox>

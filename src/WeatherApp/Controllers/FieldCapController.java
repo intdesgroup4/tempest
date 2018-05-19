@@ -2,13 +2,12 @@ package WeatherApp.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import org.jxmapviewer.viewer.GeoPosition;
-
+import WeatherApp.model.Field;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 public class FieldCapController implements Initializable{
@@ -22,6 +21,8 @@ public class FieldCapController implements Initializable{
 	@FXML private Text fWindspeedUnit;
 	@FXML private Text latitude;
 	@FXML private Text longitude;
+	@FXML private Pane fColour;
+	private Field field;
 	
 
 	@Override
@@ -62,4 +63,11 @@ public class FieldCapController implements Initializable{
 		fWindspeedUnit.setText(txt);
 	}
 	
+	public void setField(Field field) {
+		this.field = field;
+		fColour.setBackground(new Background(new BackgroundFill(field.getColour(), null, null)));
+		latitude.setText(Double.toString(field.getLat()));
+		longitude.setText(Double.toString(field.getLng()));
+		fName.setText(field.getName());
+	}
 }
