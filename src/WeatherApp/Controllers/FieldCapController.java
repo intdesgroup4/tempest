@@ -2,19 +2,12 @@ package WeatherApp.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import org.jxmapviewer.viewer.GeoPosition;
-import com.sun.javafx.geom.Rectangle;
-
 import WeatherApp.model.Field;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 
 public class FieldCapController implements Initializable{

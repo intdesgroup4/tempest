@@ -1,6 +1,8 @@
 package WeatherApp.service;
 
 import WeatherApp.model.Field;
+import javafx.scene.paint.Color;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -51,6 +53,10 @@ public class FieldStore extends Store {
             jField.addProperty("name", field.getName());
             jField.addProperty("latitude", field.getLat());
             jField.addProperty("longitude", field.getLng());
+            //store the colour as raw RGB
+            jField.addProperty("colour", field.getColour().getRed() + "-" 
+            		+ field.getColour().getGreen() + "-" 
+            		+ field.getColour().getBlue());
             jFields.add(jField);
         }
 
@@ -70,6 +76,12 @@ public class FieldStore extends Store {
             Field field = new Field(jField.get("name").getAsString(),
                     jField.get("latitude").getAsDouble(),
                     jField.get("longitude").getAsDouble());
+            try {
+            	String[] rgb = jField.get("colour").getAsString().split("-");
+            	field.setColour(new Color(Double.parseDouble(rgb[0]), Double.parseDouble(rgb[1]), Double.parseDouble(rgb[2]),1.0));
+            } catch(Exception e) {
+            	System.out.println("outdated json field storage file: no colour data found for field " + field.getName());
+            }
 
             fields.add(field);
         }

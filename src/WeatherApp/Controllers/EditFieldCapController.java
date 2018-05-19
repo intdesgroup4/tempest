@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
-
 import WeatherApp.Main;
 import WeatherApp.Editmode.Colourchooser;
 import WeatherApp.model.Field;
@@ -15,12 +14,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -71,6 +68,7 @@ public class EditFieldCapController implements Initializable{
 	}
 	
 	public void moveUp() throws IOException {
+		//move the field capsule up by one
 		int currentindex = fList.indexOf(field);
 		if(currentindex != 0) {
 			Collections.swap(fList, currentindex, currentindex-1);
@@ -79,6 +77,7 @@ public class EditFieldCapController implements Initializable{
 	}
 	
 	public void moveDown() throws IOException {
+		//move the field capsule down by one
 		int currentindex = fList.indexOf(field);
 		if(currentindex < fList.size()-1) {
 			Collections.swap(fList, currentindex, currentindex+1);
@@ -87,6 +86,7 @@ public class EditFieldCapController implements Initializable{
 	}
 	
 	public void colourClicked() throws Exception {
+		//bring up a new colourchooser window in which the user can select the colour of the field
 		Colourchooser cc = new Colourchooser();
 		cc.setField(field);
 		cc.passcontroller(parent);
