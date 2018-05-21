@@ -50,6 +50,18 @@
             <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#eeeeee" height="9.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="461.0" />
             <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="600.0">
                <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   WindSpeed unit :" wrappingWidth="240.65496826171875">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+                  <Pane prefHeight="72.0" prefWidth="77.0" />
+                  <ComboBox prefHeight="42.0" prefWidth="261.0" promptText="m/s" style="-fx-background-color: #B2EBF2; -fx-background-radius: 20;" />
+               </children>
+            </HBox>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#eeeeee" height="9.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="461.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="600.0">
+               <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Notifications:" wrappingWidth="222.65496826171875">
                      <font>
                         <Font size="25.0" />
@@ -66,13 +78,13 @@
             <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#eeeeee" height="9.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="461.0" />
             <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="600.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Text Size:" wrappingWidth="186.65496826171875">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Refresh cycle:" wrappingWidth="186.65496826171875">
                      <font>
                         <Font size="25.0" />
                      </font>
                   </Text>
                   <Pane prefHeight="72.0" prefWidth="158.0" />
-                  <Slider prefHeight="19.0" prefWidth="156.0" scaleX="2.0" scaleY="2.0" snapToTicks="true" style="-fx-background-color: #B2EBF2; -fx-background-radius: 20;" />
+                  <Slider max="12.0" prefHeight="19.0" prefWidth="156.0" scaleX="2.0" scaleY="2.0" snapToTicks="true" style="-fx-background-color: #B2EBF2; -fx-background-radius: 20;" />
                </children>
             </HBox>
          </children>

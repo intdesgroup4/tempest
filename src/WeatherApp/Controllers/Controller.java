@@ -139,17 +139,19 @@ public class Controller implements Initializable{
 	
 	public void editupdate() throws IOException {
 		//updates the edit panels
-		dbContent = new VBox();
+		VBox dbContentNew = new VBox();
+
 		for(Field field: fList) {
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/editmodeCapsule.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/editmodeCapsule.fxml"));
     		Node editCapNode = loader.load();
-    		dbContent.getChildren().add(editCapNode);
+    		System.out.println("got here");
+    		dbContentNew.getChildren().add(editCapNode);
     		EditFieldCapController capController = loader.<EditFieldCapController>getController();
             capController.setField(field);
             capController.passlist(fList);
             capController.passparent(this);
     	}
-    	dashboardList.setContent(dbContent);
+    	dashboardList.setContent(dbContentNew);
 	}
 	
 	public void removeFarm(Field field) throws IOException {
