@@ -97,12 +97,14 @@ public class Controller implements Initializable{
             fieldCapNode.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    System.out.println("fieldcapsule clicked");
-
                     try {
                         Stage stage = (Stage) editButton.getScene().getWindow();
-                        Parent root = FXMLLoader.load(getClass().getResource("/scenes/moreInfo.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/moreInfo.fxml"));
+                        Parent root = loader.load();
                         Scene scene = new Scene(root);
+
+                        MoreInfoController moreInfoController = loader.<MoreInfoController>getController();
+                        moreInfoController.setField(field);
 
                         stage.setScene(scene);
                         stage.show();
@@ -117,6 +119,7 @@ public class Controller implements Initializable{
 
     		FieldCapController capController = loader.<FieldCapController>getController();
             capController.setField(field);
+            capController.updateToCurrentWeather();
     	}
 
     	dashboardList.setContent(dbContent);
@@ -130,10 +133,10 @@ public class Controller implements Initializable{
 		//updates the edit panels
 		dbContent = new VBox();
 		for(Field field: fList) {
-    		FXMLLoader ploader = new FXMLLoader(getClass().getResource("/scenes/editFieldCap.fxml"));
-    		Node editCapNode = ploader.load();
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/editFieldCap.fxml"));
+    		Node editCapNode = loader.load();
     		dbContent.getChildren().add(editCapNode);
-    		EditFieldCapController capController = ploader.<EditFieldCapController>getController();    
+    		EditFieldCapController capController = loader.<EditFieldCapController>getController();
             capController.setField(field);
             capController.passlist(fList);
             capController.passparent(this);

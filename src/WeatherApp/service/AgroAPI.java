@@ -1,5 +1,6 @@
 package WeatherApp.service;
 
+
 import WeatherApp.model.Condition;
 import WeatherApp.model.Soil;
 import WeatherApp.model.Weather;

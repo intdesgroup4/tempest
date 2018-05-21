@@ -139,7 +139,7 @@ public enum Condition {
      */
     private static Image loadIcon(String name) {
         String path = String.format(File.separator + "agro-api-icons" + File.separator + "%s.png", name);
-        return new Image(Condition.class.getResource(path).toString());
+        return new Image(path);
     }
 
     /**

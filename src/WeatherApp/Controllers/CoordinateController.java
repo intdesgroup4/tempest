@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 import org.jxmapviewer.viewer.GeoPosition;
 
 import java.io.IOException;
-import java.util.function.DoubleBinaryOperator;
 
 public class CoordinateController {
 
