@@ -1,6 +1,7 @@
 package WeatherApp.Controllers;
 
 import WeatherApp.model.Field;
+import WeatherApp.model.Soil;
 import WeatherApp.model.Weather;
 import WeatherApp.service.AgroAPI;
 import WeatherApp.service.AgroStore;
@@ -37,6 +38,12 @@ public class MoreInfoController {
     private Text nameText;
     @FXML
     private Pane fColour;
+    @FXML
+    private Text soilMoistureText;
+    @FXML
+    private Text soilUndergroundTempText;
+    @FXML
+    private Text soilGroundTempText;
 
     public MoreInfoController() throws IOException {
     }
@@ -45,7 +52,8 @@ public class MoreInfoController {
         this.field = field;
         updateField();
         try {
-            getWeather();
+            getWeatherForecast();
+            getCurrentSoil();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -56,7 +64,7 @@ public class MoreInfoController {
         fColour.setBackground(new Background(new BackgroundFill(field.getColour(), null, null)));
     }
 
-    private void getWeather() throws IOException {
+    private void getWeatherForecast() throws IOException {
         List<Weather> weatherList = agroStore.getForecastWeather(field);
         weatherList.add(0, agroStore.getCurrentWeather(field));
         for(Weather weather : weatherList) {
@@ -69,6 +77,13 @@ public class MoreInfoController {
         dashboardList.setContent(dbContent);
     }
 
+    private void getCurrentSoil() {
+        Soil soil = agroStore.getCurrentSoil(field);
+        soilGroundTempText.setText(Double.toString(soil.getSurfaceTemp()));
+        soilUndergroundTempText.setText(Double.toString(soil.getUndergroundTemp()));
+        soilMoistureText.setText(Double.toString(soil.getMoisture()));
+    }
+
     @FXML
     public void backClicked() throws IOException {
         Stage stage = (Stage)backButton.getScene().getWindow();
@@ -76,6 +91,10 @@ public class MoreInfoController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+    @FXML
+    public void settingsClicked() {
+
     }
 
 }

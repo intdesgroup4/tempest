@@ -33,6 +33,12 @@
             </Button>
          </items>
       </ToolBar>
+      <Text text="Soil Ground Temperature (K)" layoutX="10" layoutY="10"/>
+      <Text text="(soilGroundTemp)" fx:id="soilGroundTempText" layoutX="10" layoutY="90"/>
+      <Text text="Soil Underground Temperature (10cm) (K)" layoutX="60" layoutY="10"/>
+      <Text text="(soilUndergroundTemp)" fx:id="soilUndergroundTempText" layoutX="60" layoutY="90"/>
+      <Text text="Soil Moisture" layoutX="110" layoutY="10"/>
+      <Text text="(Soil Moisture)" fx:id="soilMoistureText" layoutX="110" layoutY="60"/>
        <StackPane prefHeight="919.0" prefWidth="600.0">
            <children>
                <ScrollPane fx:id="dashboardList" prefHeight="200.0" prefWidth="200.0" />

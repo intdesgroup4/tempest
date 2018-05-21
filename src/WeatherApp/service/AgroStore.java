@@ -112,7 +112,7 @@ public class AgroStore extends Store {
 
         if (Instant.now().isAfter(known.getWhen().plus(EXPIRY))) {
             // data's use of representing the current soil has past
-            return null;
+            //return null;
         }
 
         return known;
