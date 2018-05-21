@@ -144,7 +144,6 @@ public class Controller implements Initializable{
 		for(Field field: fList) {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/editmodeCapsule.fxml"));
     		Node editCapNode = loader.load();
-    		System.out.println("got here");
     		dbContentNew.getChildren().add(editCapNode);
     		EditFieldCapController capController = loader.<EditFieldCapController>getController();
             capController.setField(field);
