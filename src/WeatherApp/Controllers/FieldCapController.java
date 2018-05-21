@@ -1,8 +1,11 @@
 package WeatherApp.Controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import WeatherApp.model.Field;
+import WeatherApp.model.Weather;
+import WeatherApp.service.AgroAPI;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Background;
@@ -70,4 +73,21 @@ public class FieldCapController implements Initializable{
 		longitude.setText(Double.toString(field.getLng()));
 		fName.setText(field.getName());
 	}
+
+	public void updateToCurrentWeather() {
+        AgroAPI agroAPI = new AgroAPI("f8ec68c63ff63029bb5987aeec96649f");
+        try {
+            Weather weather = agroAPI.getCurrentWeather(field.getLat(),field.getLng());
+            fTemp.setText(Double.toString(weather.getTemperature()));
+            fTempUnit.setText("K");
+            if(weather.getRainfall() == Double.NaN)
+                fRain.setText("0");
+            else
+                fRain.setText(Double.toString(weather.getRainfall()));
+            fWindspeed.setText(Double.toString(weather.getWindSpeed()));
+            fWindspeedUnit.setText("m/s");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
