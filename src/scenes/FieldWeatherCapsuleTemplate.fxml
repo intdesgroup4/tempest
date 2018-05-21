@@ -23,43 +23,60 @@
          </fill>
       </Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3d0db40" height="6.0" layoutX="23.0" layoutY="197.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="559.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3d0db40" height="6.0" layoutX="23.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="559.0" />
-        <Text fx:id="fTime" fill="WHITE" layoutX="6.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="((time))" wrappingWidth="102.00001001358032">
+        <Text fx:id="tHour" fill="WHITE" layoutX="85.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hour" wrappingWidth="102.00001001358032">
          <font>
             <Font size="30.0" />
          </font></Text>
-        <ImageView fx:id="weatherIcon" fitHeight="67.0" fitWidth="31.0" layoutX="16.0" layoutY="58.0" />
-        <Text fx:id="fTemp" fill="WHITE" layoutX="231.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17" wrappingWidth="76.85302734375">
+        <ImageView fx:id="weatherIcon" fitHeight="39.0" fitWidth="39.0" layoutX="172.0" layoutY="5.0" />
+        <Text fx:id="fTemp" fill="WHITE" layoutX="50.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17" wrappingWidth="76.85302734375">
             <font>
                 <Font size="57.0" />
             </font>
         </Text>
-        <Text fx:id="fTempUnit" fill="WHITE" layoutX="256.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="K">
+        <Text fx:id="fTempUnit" fill="WHITE" layoutX="88.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="K">
             <font>
                 <Font size="27.0" />
             </font>
         </Text>
-        <ImageView fitHeight="87.0" fitWidth="65.0" layoutX="308.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
-        <Text fx:id="fRain" fill="WHITE" layoutX="371.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" wrappingWidth="76.85302734375">
+        <Text fx:id="fRain" fill="WHITE" layoutX="164.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" wrappingWidth="76.85302734375">
             <font>
                 <Font size="57.0" />
             </font>
         </Text>
-        <Text fx:id="fRainUnit" fill="WHITE" layoutX="386.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mm">
+        <Text fx:id="fRainUnit" fill="WHITE" layoutX="181.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mm">
             <font>
                 <Font size="25.0" />
             </font>
         </Text>
-        <ImageView fitHeight="51.0" fitWidth="89.0" layoutX="429.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0" />
-        <Text fx:id="fWindspeed" fill="WHITE" layoutX="509.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" wrappingWidth="76.85302734375">
+        <Text fx:id="fWindspeed" fill="WHITE" layoutX="287.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" wrappingWidth="76.85302734375">
             <font>
                 <Font size="57.0" />
             </font>
         </Text>
-        <Text fx:id="fWindspeedUnit" fill="WHITE" layoutX="530.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="m/s">
+      <Text fx:id="tDate" fill="WHITE" layoutX="10.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="102.00001001358032">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="fWindDirection" fill="WHITE" layoutX="401.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" wrappingWidth="76.85302734375">
+         <font>
+            <Font size="57.0" />
+         </font>
+      </Text>
+      <Text fx:id="fHumidity" fill="WHITE" layoutX="521.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" wrappingWidth="76.85302734375">
+         <font>
+            <Font size="57.0" />
+         </font>
+      </Text>
+        <Text fx:id="fWindspeedUnit" fill="WHITE" layoutX="309.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="m/s">
             <font>
                 <Font size="23.0" />
             </font>
         </Text>
+      <Text fx:id="fHumidityUnit" fill="WHITE" layoutX="543.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="m/s">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
     </children>
 </Pane>

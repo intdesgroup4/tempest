@@ -9,7 +9,9 @@ import javafx.scene.text.Text;
 public class FieldWeatherCapController {
 
     @FXML
-    private Text fTime;
+    private Text tHour;
+    @FXML
+    private Text tDate;
     @FXML
     private ImageView weatherIcon;
     @FXML
@@ -24,9 +26,16 @@ public class FieldWeatherCapController {
     private Text fWindspeed;
     @FXML
     private Text fWindspeedUnit;
+    @FXML
+    private Text fWindDirection;
+    @FXML
+    private Text fHumidity;
+    @FXML
+    private Text fHumidityUnit;
+    
 
     public void setWeather(Weather weather) {
-        fTime.setText(weather.getWhen().toString());
+        tHour.setText(weather.getWhen().toString());
         Image image = weather.getConditions().get(0).getDayIcon();
         weatherIcon.setImage(image);
         fTemp.setText(Double.toString(weather.getTemperature()));
