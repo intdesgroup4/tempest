@@ -10,8 +10,8 @@
    <children>
       <ToolBar prefHeight="40.0" prefWidth="200.0">
          <items>
-            <Pane fx:id="fColour" prefWidth="50"  />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="(fieldname)" wrappingWidth="219.861328125" fx:id="nameText">
+            <Pane fx:id="fColour" prefWidth="50" />
+            <Text fx:id="nameText" strokeType="OUTSIDE" strokeWidth="0.0" text="(fieldname)" wrappingWidth="219.861328125">
                <font>
                   <Font size="36.0" />
                </font>
@@ -21,12 +21,12 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="Settings">
+            <Button mnemonicParsing="false" onAction="#settingsClicked" text="Settings">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="Back" fx:id="backButton" onAction="#backClicked">
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#backClicked" text="Back">
                <font>
                   <Font size="18.0" />
                </font>

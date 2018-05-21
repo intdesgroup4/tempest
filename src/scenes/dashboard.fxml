@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
@@ -11,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="935.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherApp.Controllers.Controller">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="935.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherApp.Controllers.Controller">
     <children>
         <ToolBar prefHeight="112.0" prefWidth="600.0" style="-fx-background-color: #0097A7;">
             <items>
@@ -24,7 +29,7 @@
                <font>
                   <Font size="20.0" />
                </font></Button>
-                <Button fx:id="settingsButton" mnemonicParsing="false" style="-fx-background-color: #8BC34A; -fx-background-radius: 20;" text="Settings" textFill="WHITE">
+                <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#settingsClicked" style="-fx-background-color: #8BC34A; -fx-background-radius: 20;" text="Settings" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font></Button>

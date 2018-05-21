@@ -64,6 +64,15 @@ public class Controller implements Initializable{
     }
 
     @FXML
+    private void settingsClicked() throws IOException {
+	    Stage stage = (Stage)addButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("/scenes/GeneralSettings.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
     private void addClicked() throws IOException{
         Stage stage = (Stage)addButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/scenes/fieldPositionChoice.fxml"));
