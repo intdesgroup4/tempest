@@ -27,7 +27,7 @@
          <font>
             <Font size="30.0" />
          </font></Text>
-        <ImageView fx:id="weatherIcon" fitHeight="39.0" fitWidth="39.0" layoutX="172.0" layoutY="5.0" />
+        <ImageView fx:id="weatherIcon" fitHeight="61.0" fitWidth="61.0" layoutX="534.0" layoutY="5.0" />
         <Text fx:id="fTemp" fill="WHITE" layoutX="50.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17" wrappingWidth="76.85302734375">
             <font>
                 <Font size="57.0" />
