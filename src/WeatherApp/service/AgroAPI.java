@@ -161,7 +161,7 @@ public class AgroAPI {
      * @throws IOException if the file could not be read
      */
     public static String loadApiKey() throws IOException {
-        URL settingsUrl = AgroAPI.class.getResource(File.separator + "agro-api-key");
+        URL settingsUrl = AgroAPI.class.getResource("/agro-api-key");
         return new Scanner(settingsUrl.openStream()).nextLine();
     }
 
