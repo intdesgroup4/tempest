@@ -22,12 +22,12 @@
                </font>
             </Text>
             <Pane prefHeight="50.0" prefWidth="143.0" />
-          <Button mnemonicParsing="false" style="-fx-background-color: #8BC34A; -fx-background-radius: 20;" text="Save" textAlignment="CENTER" textFill="WHITE" fx:id="saveButton" onAction="#saveClicked">
+          <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveClicked" style="-fx-background-color: #8BC34A; -fx-background-radius: 20;" text="Save" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" style="-fx-background-color: #8BC34A; -fx-background-radius: 20;" text="Cancel" textFill="WHITE" fx:id="cancelButton" onAction="#cancelClicked">
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelClicked" style="-fx-background-color: #8BC34A; -fx-background-radius: 20;" text="Cancel" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
@@ -44,7 +44,7 @@
                      </font>
                   </Text>
                   <Pane prefHeight="72.0" prefWidth="77.0" />
-                  <ComboBox prefHeight="42.0" prefWidth="261.0" promptText="Celsius" style="-fx-background-color: #B2EBF2; -fx-background-radius: 20;" fx:id="tempUnitCombo"/>
+                  <ComboBox fx:id="tempUnitCombo" prefHeight="42.0" prefWidth="261.0" promptText="Celsius" style="-fx-background-color: #B2EBF2; -fx-background-radius: 20;" />
                </children>
             </HBox>
             <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#eeeeee" height="9.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="461.0" />
