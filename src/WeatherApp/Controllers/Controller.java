@@ -132,7 +132,7 @@ public class Controller implements Initializable{
 		//updates the edit panels
 		dbContent = new VBox();
 		for(Field field: fList) {
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/editFieldCap.fxml"));
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/editmodeCapsule.fxml"));
     		Node editCapNode = loader.load();
     		dbContent.getChildren().add(editCapNode);
     		EditFieldCapController capController = loader.<EditFieldCapController>getController();
