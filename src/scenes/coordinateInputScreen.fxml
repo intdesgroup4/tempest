@@ -1,28 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<?import javafx.embed.swing.SwingNode?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="935.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherApp.Controllers.CoordinateController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="935.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherApp.Controllers.CoordinateController">
     <children>
-        <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <ToolBar prefHeight="64.0" prefWidth="200.0" style="-fx-background-color: #00BCD4;">
             <items>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Input Coordinates" />
+                <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Add a Field">
+               <font>
+                  <Font size="37.0" />
+               </font></Text>
                 <Pane prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                <Button fx:id="cancelButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#cancelClicked" text="cancel" />
+                <Button fx:id="cancelButton" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#cancelClicked" style="-fx-background-color: #B2EBF2; -fx-background-radius: 20;" text="Cancel" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Button>
             </items>
         </ToolBar>
-        <Label text="Please input the coordinates of your field" />
-        <Pane prefHeight="20"/>
-        <Label text="Lattitude:" />
-        <TextField fx:id="latInput"/>
-        <Label text="Longitude:"/>
-        <TextField fx:id="longInput"/>
-        <Label fx:id="errorLabel" text="Hello world \n hellow \n" visible="false" textFill="red"/>
-        <Button text="Ok" fx:id="doneButton" onAction="#doneClicked"/>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="85.0" prefWidth="600.0">
+         <children>
+              <Label text="Lattitude">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Pane prefHeight="57.0" prefWidth="167.0" />
+              <Label text="Longitude">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+              <TextField fx:id="latInput" prefHeight="50.0" prefWidth="250.0" style="-fx-background-radius: 20;">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </TextField>
+            <Pane prefHeight="100.0" prefWidth="23.0" />
+              <TextField fx:id="longInput" prefHeight="50.0" prefWidth="250.0" style="-fx-background-radius: 20;">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+              <Button fx:id="doneButton" onAction="#doneClicked" style="-fx-background-color: #8BC34A; -fx-background-radius: 20;" text="Confirm Coordinates" textFill="WHITE">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+        <Label fx:id="errorLabel" prefHeight="6.0" prefWidth="600.0" text="Hello world \n hellow \n" textAlignment="CENTER" textFill="red" visible="false">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
 
     </children>
 </VBox>
