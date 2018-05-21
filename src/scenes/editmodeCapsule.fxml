@@ -26,7 +26,6 @@
       <ImageView fitHeight="130.0" fitWidth="69.0" layoutX="177.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="87.0" fitWidth="65.0" layoutX="308.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="51.0" fitWidth="89.0" layoutX="429.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0" />
-      <Pane fx:id="colourPane" layoutX="557.0" layoutY="9.0" prefHeight="39.0" prefWidth="38.0" style="-fx-background-radius: 100; -fx-border-color: #ffffff; -fx-border-radius: 100;" />
       <Pane prefHeight="5.0" prefWidth="600.0" style="-fx-background-color: #BDBDBD;" />
       <TextField fx:id="defName" layoutX="306.0" layoutY="56.0" onAction="#nameEdit" onKeyPressed="#nameEdit" onKeyReleased="#nameEdit" onKeyTyped="#nameEdit" prefHeight="44.0" prefWidth="288.0">
          <font>
@@ -57,5 +56,6 @@
             <Font size="37.0" />
          </font>
       </Button>
+      <Rectangle fx:id="colourPane" arcHeight="100.0" arcWidth="100.0" fill="DODGERBLUE" height="34.0" layoutX="556.0" layoutY="11.0" stroke="WHITE" strokeType="INSIDE" width="34.0" />
    </children>
 </Pane>

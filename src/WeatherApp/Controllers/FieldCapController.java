@@ -13,6 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 public class FieldCapController implements Initializable{
@@ -26,7 +28,7 @@ public class FieldCapController implements Initializable{
 	@FXML private Text fWindspeedUnit;
 	@FXML private Text latitude;
 	@FXML private Text longitude;
-	@FXML private Pane fColour;
+	@FXML private Rectangle fColour;
 	private Field field;
 
 	@Override
@@ -69,7 +71,8 @@ public class FieldCapController implements Initializable{
 	
 	public void setField(Field field) {
 		this.field = field;
-		fColour.setBackground(new Background(new BackgroundFill(field.getColour(), null, null)));
+		Color c = field.getColour();
+		fColour.setFill(c);
 		latitude.setText(Double.toString(field.getLat()));
 		longitude.setText(Double.toString(field.getLng()));
 		fName.setText(field.getName());

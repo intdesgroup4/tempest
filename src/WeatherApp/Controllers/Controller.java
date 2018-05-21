@@ -95,7 +95,8 @@ public class Controller implements Initializable{
     private void updatelist(List<Field> fieldlist) throws IOException {
     	//updates the dashboard's field list by reading through the inputed fieldlist
     	fList = fieldlist;
-
+    	
+    	dbContent = new VBox();
     	// for each field load the template and create the node for the field capsule
     	for(Field field: fieldlist) {
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/FieldCapsuleTemplate.fxml"));
