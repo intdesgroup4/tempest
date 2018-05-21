@@ -20,6 +20,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -31,6 +32,8 @@ public class EditFieldCapController implements Initializable{
 	@FXML private Button editColourButton;
 	@FXML private TextField defName;
 	@FXML private Rectangle colourPane;
+	@FXML private Text upA;
+	@FXML private Text downA;
 	//the field that this edit panel corresponds to
 	private Field field;
 	//the current list of fields in the dashboard
@@ -122,9 +125,11 @@ public class EditFieldCapController implements Initializable{
 		if(fList != null && field != null) {
 			if(fList.indexOf(field) == 0) {
 				mUp.setVisible(false);
+				upA.setVisible(false);
 			}
 			else if(fList.indexOf(field) == fList.size()-1) {
 				mDown.setVisible(false);
+				downA.setVisible(false);
 			}
 		}	
 	}

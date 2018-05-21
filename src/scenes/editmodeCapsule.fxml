@@ -8,17 +8,18 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="162.0" prefWidth="600.0" style="-fx-background-color: #919191;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherApp.Controllers.EditFieldCapController">
    <children>
-      <Rectangle arcHeight="5.0" height="156.0" layoutX="175.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="425.0">
+      <Rectangle arcHeight="5.0" height="162.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0">
          <fill>
-            <LinearGradient endX="1.0" endY="0.34285714285714275" startX="1.0" startY="0.9523809523809524">
+            <LinearGradient endX="1.0" endY="0.34285714285714275" startX="1.0" startY="1.0">
                <stops>
                   <Stop color="#00000052" />
-                  <Stop color="#00000052" offset="0.007662835249042145" />
-                  <Stop color="#868686" offset="0.19157088122605354" />
-                  <Stop color="#c9f29521" offset="1.0" />
+                  <Stop color="#0000000e" offset="0.007662835249042145" />
+                  <Stop color="#85858574" offset="0.1915708812260535" />
+                  <Stop color="#cde8f721" offset="1.0" />
                </stops>
             </LinearGradient>
          </fill>
@@ -26,36 +27,40 @@
       <ImageView fitHeight="130.0" fitWidth="69.0" layoutX="177.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="87.0" fitWidth="65.0" layoutX="308.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="51.0" fitWidth="89.0" layoutX="429.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0" />
-      <Pane prefHeight="5.0" prefWidth="600.0" style="-fx-background-color: #BDBDBD;" />
-      <TextField fx:id="defName" layoutX="306.0" layoutY="56.0" onAction="#nameEdit" onKeyPressed="#nameEdit" onKeyReleased="#nameEdit" onKeyTyped="#nameEdit" prefHeight="44.0" prefWidth="288.0">
+      <TextField fx:id="defName" layoutX="306.0" layoutY="56.0" onAction="#nameEdit" onKeyPressed="#nameEdit" onKeyReleased="#nameEdit" onKeyTyped="#nameEdit" prefHeight="44.0" prefWidth="288.0" style="-fx-background-radius: 20;">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Rectangle height="162.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="175.0">
-         <fill>
-            <LinearGradient endX="0.8666666666666667" endY="1.0" startY="1.0">
-               <stops>
-                  <Stop color="#00000044" />
-                  <Stop color="#00000025" offset="0.007662835249042145" />
-                  <Stop color="#bdbdbd" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </fill>
-      </Rectangle>
-      <Button fx:id="mUp" layoutX="7.0" layoutY="29.0" mnemonicParsing="false" onAction="#moveUp" prefHeight="47.0" prefWidth="82.0" visible="false" />
-      <Button fx:id="mDown" layoutX="12.0" layoutY="83.0" mnemonicParsing="false" onAction="#moveDown" prefHeight="53.0" prefWidth="76.0" visible="false" />
-      <Button fx:id="deleteButton" graphicTextGap="0.0" layoutX="97.0" layoutY="41.0" mnemonicParsing="false" onAction="#deleteClicked" prefHeight="78.0" prefWidth="76.0" style="-fx-background-color: #d34e4e; -fx-background-radius: 100; -fx-border-color: #FFFFFF; -fx-border-radius: 100;" textAlignment="JUSTIFY" textFill="WHITE" textOverrun="CLIP">
+      <Button fx:id="mUp" layoutX="12.0" layoutY="17.0" mnemonicParsing="false" onAction="#moveUp" opacity="0.0" prefHeight="47.0" prefWidth="76.0" text="⬆">
+         <font>
+            <Font size="30.0" />
+         </font></Button>
+      <Button fx:id="mDown" layoutX="12.0" layoutY="83.0" mnemonicParsing="false" onAction="#moveDown" opacity="0.0" prefHeight="53.0" prefWidth="76.0" text="⬇">
+         <font>
+            <Font size="30.0" />
+         </font></Button>
+      <Button fx:id="deleteButton" graphicTextGap="0.0" layoutX="107.0" layoutY="41.0" mnemonicParsing="false" onAction="#deleteClicked" prefHeight="78.0" prefWidth="76.0" style="-fx-background-color: #ff8989; -fx-background-radius: 100; -fx-border-color: #FFFFFF; -fx-border-radius: 100;" textAlignment="JUSTIFY" textFill="WHITE" textOverrun="CLIP">
          <font>
             <Font name="Arial" size="8.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="10.0" layoutX="116.0" layoutY="75.0" mouseTransparent="true" stroke="#e8e8e8" strokeType="INSIDE" width="41.0" />
-      <Button fx:id="editColourButton" layoutX="201.0" layoutY="41.0" mnemonicParsing="false" onAction="#colourClicked" prefHeight="75.0" prefWidth="91.0" style="-fx-background-radius: 30;" text="🎨">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="10.0" layoutX="126.0" layoutY="75.0" mouseTransparent="true" stroke="#e8e8e8" strokeType="INSIDE" width="41.0" />
+      <Button fx:id="editColourButton" layoutX="201.0" layoutY="41.0" mnemonicParsing="false" onAction="#colourClicked" prefHeight="75.0" prefWidth="91.0" style="-fx-background-radius: 30; -fx-background-color: #FFFFFF;" text="🎨">
          <font>
             <Font size="37.0" />
          </font>
       </Button>
       <Rectangle fx:id="colourPane" arcHeight="100.0" arcWidth="100.0" fill="DODGERBLUE" height="34.0" layoutX="556.0" layoutY="11.0" stroke="WHITE" strokeType="INSIDE" width="34.0" />
+      <Text fx:id="upA" fill="WHITE" layoutX="32.0" layoutY="58.0" mouseTransparent="true" scaleX="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="⬆">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
+      <Text fx:id="downA" fill="WHITE" layoutX="32.0" layoutY="133.0" mouseTransparent="true" rotate="180.0" scaleX="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="⬆">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

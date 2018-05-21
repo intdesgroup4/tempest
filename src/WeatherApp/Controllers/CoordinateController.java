@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.jxmapviewer.viewer.GeoPosition;
 
@@ -24,7 +25,7 @@ public class CoordinateController {
     @FXML
     private TextField longInput;
     @FXML
-    private Label errorLabel;
+    private Text errorM;
 
     @FXML
     public void cancelClicked() throws IOException {
@@ -54,7 +55,7 @@ public class CoordinateController {
             FieldCustomisationController customisationController = loader.<FieldCustomisationController>getController();
             customisationController.setLoc(pos);
         } catch (InvalidCoordinateException e) {
-            errorLabel.setVisible(true);
+            errorM.setVisible(true);
         }
     }
 
@@ -64,12 +65,12 @@ public class CoordinateController {
             lat = Double.parseDouble(latInput.getText());
             lng = Double.parseDouble(longInput.getText());
         } catch (NumberFormatException e) {
-            errorLabel.setText(" \n Please enter valid numbers as coordinates \n ");
+            errorM.setText(" \n Please enter valid numbers as coordinates \n ");
             throw new InvalidCoordinateException();
         }
 
         if(lat >90.0 || lat < -90.0 || lng > 180.0 || lng < -180.0) {
-            errorLabel.setText("Please ensure that coordinates are in a valid range \nLatitude: between -90.0 and 90.0 \nLongitude: between -180.0 and 180.0");
+            errorM.setText("Please ensure that coordinates are in a valid range \nLatitude: between -90.0 and 90.0 \nLongitude: between -180.0 and 180.0");
             throw new InvalidCoordinateException();
         }
 

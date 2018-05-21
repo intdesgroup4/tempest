@@ -18,6 +18,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.jxmapviewer.viewer.GeoPosition;
@@ -41,7 +43,9 @@ public class FieldCustomisationController {
     @FXML
     private Button colourButton;
     @FXML
-    private HBox colourBox;
+    private Rectangle colourBox;
+    @FXML
+    private Text errorM;
 
     private GeoPosition loc;
     //default colour for a field is white
@@ -58,7 +62,12 @@ public class FieldCustomisationController {
 
     @FXML
     public void doneClicked() throws IOException {
-        Stage stage = (Stage) doneButton.getScene().getWindow();
+    	if(nameInput.getText().length()>20) {
+    		//name input is over max length of name
+    		errorM.setVisible(true);
+    	}
+    	else {
+    		Stage stage = (Stage) doneButton.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/dashboard.fxml"));
 
         Controller controller = loader.<Controller>getController();
@@ -74,6 +83,8 @@ public class FieldCustomisationController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    	}
+        
 
     }
     
@@ -94,7 +105,7 @@ public class FieldCustomisationController {
     public void panelupdate(Color c) {
     	//takes in the colour from the colourchooser and updates the colour of the pane
     	colour = c;
-    	colourBox.setBackground(new Background(new BackgroundFill(c, null, null)));
+    	colourBox.setFill(c);
     	
     }
 

@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -46,7 +47,7 @@
                </font>
             </Button>
             <Pane prefHeight="100.0" prefWidth="37.0" />
-            <HBox fx:id="colourBox" prefHeight="100.0" prefWidth="100.0" style="-fx-border-color: #BDBDBD; -fx-border-width: 3; -fx-border-radius: 100; -fx-background-radius: 100;" />
+            <Rectangle fx:id="colourBox" arcHeight="100.0" arcWidth="100.0" fill="#1f93ff00" height="100.0" stroke="#b9b9b9" strokeType="INSIDE" width="100.0" />
          </children>
          <opaqueInsets>
             <Insets left="20.0" />
@@ -57,6 +58,12 @@
       </HBox>
       <VBox alignment="CENTER" prefHeight="377.0" prefWidth="600.0">
          <children>
+            <Text fx:id="errorM" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Error: Field Name should be no longer than 20 characters" visible="false">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Pane prefHeight="38.0" prefWidth="600.0" />
               <Button fx:id="doneButton" alignment="TOP_CENTER" onAction="#doneClicked" prefWidth="500.0" style="-fx-background-color: #0097A7; -fx-background-radius: 20;" text="Done" textFill="WHITE">
                <font>
                   <Font size="40.0" />

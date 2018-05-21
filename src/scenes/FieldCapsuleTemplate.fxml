@@ -12,11 +12,11 @@
    <children>
       <Rectangle arcHeight="5.0" height="163.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0">
          <fill>
-            <LinearGradient endX="1.0" endY="0.34285714285714275" startX="1.0" startY="0.9523809523809524">
+            <LinearGradient endX="1.0" endY="0.34285714285714275" startX="1.0" startY="1.0">
                <stops>
                   <Stop color="#00000052" />
-                  <Stop color="#00000052" offset="0.007662835249042145" />
-                  <Stop color="#868686" offset="0.1915708812260536" />
+                  <Stop color="#00000022" offset="0.007662835249042145" />
+                  <Stop color="#858585fc" offset="0.1915708812260535" />
                   <Stop color="#b2ebf221" offset="1.0" />
                </stops>
             </LinearGradient>
@@ -28,7 +28,7 @@
          </font>
       </Text>
       <ImageView fitHeight="130.0" fitWidth="69.0" layoutX="177.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" />
-      <Text fx:id="fTemp" fill="WHITE" layoutX="231.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17" wrappingWidth="76.85302734375">
+      <Text fx:id="fTemp" fill="WHITE" layoutX="211.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17" wrappingWidth="142.85302734375">
          <font>
             <Font size="57.0" />
          </font>
