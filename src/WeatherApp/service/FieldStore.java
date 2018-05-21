@@ -17,12 +17,10 @@ import java.util.List;
  * DRY; the contained List<Field> should be manipulated to add/remove/provide ordering.
  *
  * See the Store class for greater insight into how persistence is achieved.
- *
- * TODO write gson code to serialise/deserialise
  */
 public class FieldStore extends Store {
 
-    private List<Field> fields;  // TODO initialise in overridden abstract Store methods
+    private List<Field> fields;  // initialised in overridden abstract Store methods, see comments in Constructor
 
     public FieldStore(Path path) {
         super(path);

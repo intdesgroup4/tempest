@@ -24,8 +24,6 @@ import java.util.Scanner;
  * data to be implemented.
  *
  * Note, caching is not implemented here; these methods will primarily be used by AgroStore, which will handle this.
- *
- * TODO work out a nice way of storing the API key - maybe use the resources folder with .gitignore'd file?
  */
 public class AgroAPI {
 
@@ -106,7 +104,8 @@ public class AgroAPI {
      * @return true if Online, else false
      */
     public boolean isOnline() {
-        // TODO work out a sane way to determine or otherwise emulate this
+        // in a mobile app, this functionality would use the phone's API to determine if an internet connection was available
+        // in our app, we will just attempt to communicate with the API and fall back on cached data if this fails
         return true;
     }
 

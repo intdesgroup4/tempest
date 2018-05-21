@@ -16,8 +16,6 @@ public class Soil {
 
     /**
      * The time for which the data represents.
-     *
-     * TODO should this be decoupled?
      */
     private final Instant when;
 

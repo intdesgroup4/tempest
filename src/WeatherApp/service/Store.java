@@ -16,9 +16,6 @@ import java.nio.file.Path;
  * serialisation and deserialisation methods.
  *
  * Note: Exceptions will likely be added to the constructor, load and save signatures soon
- *
- * TODO choose a library for storing simple data types - maybe share with the one that'll be used to decode the JSON API
- *      responses?
  */
 public abstract class Store {
 
@@ -35,8 +32,6 @@ public abstract class Store {
 
     /**
      * Load state from the file.
-     *
-     * TODO ensure nothing is left open
      */
     public void load() {
         try (Reader reader = Files.newBufferedReader(path)){
@@ -50,8 +45,6 @@ public abstract class Store {
 
     /**
      * Save state to the file.
-     *
-     * TODO ensure nothing is left open
      */
     public void save() {
         try (Writer writer = Files.newBufferedWriter(path)) {

@@ -21,8 +21,6 @@ public class Weather {
 
     /**
      * The time for which the data represents or was forecast to represent.
-     *
-     * TODO should this be decoupled?
      */
     private final Instant when;
 
