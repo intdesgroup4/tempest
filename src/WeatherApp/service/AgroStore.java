@@ -186,6 +186,8 @@ public class AgroStore extends Store {
     	List<Weather> allWeather = new ArrayList<>();
     	//a parallel list of the associated field Id's for each weather element in allWeather
     	List<String> allIds = new ArrayList<>();
+        if (weathers == null)
+            return;
         weathers.clear();
         //for dealing with string to instant conversions:
         DateTimeFormatter dformatter = DateTimeFormatter.ofPattern(("yyyy-MM-dd HH:mm:ss")).withZone(ZoneId.systemDefault());
