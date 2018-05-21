@@ -41,6 +41,8 @@ public class Weather {
 
     /**
      * Wind direction, in meteorological degrees.
+     *
+     * OPTIONAL - this isn't always returned by the API, so we'll store NaN if that's the case
      */
     private final double windDirection;
 

@@ -3,6 +3,7 @@ package WeatherApp.Controllers;
 import WeatherApp.model.Field;
 import WeatherApp.model.Weather;
 import WeatherApp.service.AgroAPI;
+import WeatherApp.service.AgroStore;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -18,13 +19,13 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class MoreInfoController {
 
     private Field field;
-    private AgroAPI agroAPI = new AgroAPI("f8ec68c63ff63029bb5987aeec96649f");
-    private int updateFreq;//frequency of updates in hours
+    private AgroStore agroStore = new AgroStore(Paths.get("stores/fieldStore.json"), new AgroAPI(AgroAPI.loadApiKey()));
 
     @FXML
     private Button backButton;
@@ -36,6 +37,9 @@ public class MoreInfoController {
     private Text nameText;
     @FXML
     private Pane fColour;
+
+    public MoreInfoController() throws IOException {
+    }
 
     public void setField(Field field) {
         this.field = field;
@@ -53,7 +57,8 @@ public class MoreInfoController {
     }
 
     private void getWeather() throws IOException {
-        List<Weather> weatherList = agroAPI.getForecastWeather(field.getLat(),field.getLng());
+        List<Weather> weatherList = agroStore.getForecastWeather(field);
+        weatherList.add(0, agroStore.getCurrentWeather(field));
         for(Weather weather : weatherList) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/FieldWeatherCapsuleTemplate.fxml"));
             Node fieldWeatherCapNode = loader.load();

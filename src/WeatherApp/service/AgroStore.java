@@ -4,6 +4,7 @@ import WeatherApp.model.Field;
 import WeatherApp.model.Soil;
 import WeatherApp.model.Weather;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -125,7 +126,7 @@ public class AgroStore extends Store {
      * @param field
      * @return an empty list if no data available, else the current Soil
      */
-    public List<Weather> getForecastedWeather(Field field) {
+    public List<Weather> getForecastWeather(Field field) {
         // get new data if we feel it's appropriate
         considerRefresh(field);
 
@@ -147,12 +148,14 @@ public class AgroStore extends Store {
 
     @Override
     protected JsonElement serialise() {
-        throw new IllegalStateException("Not yet implemented");
+        return new JsonObject();
+        //throw new IllegalStateException("Not yet implemented");
     }
 
     @Override
     protected void deserialise(JsonElement json) {
-        throw new IllegalStateException("Not yet implemented");
+        return;
+        //throw new IllegalStateException("Not yet implemented");
     }
 
     /**

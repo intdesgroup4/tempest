@@ -2,10 +2,12 @@ package WeatherApp.Controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import WeatherApp.model.Field;
 import WeatherApp.model.Weather;
 import WeatherApp.service.AgroAPI;
+import WeatherApp.service.AgroStore;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.Background;
@@ -26,7 +28,6 @@ public class FieldCapController implements Initializable{
 	@FXML private Text longitude;
 	@FXML private Pane fColour;
 	private Field field;
-	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -75,12 +76,12 @@ public class FieldCapController implements Initializable{
 	}
 
 	public void updateToCurrentWeather() {
-        AgroAPI agroAPI = new AgroAPI("f8ec68c63ff63029bb5987aeec96649f");
         try {
-            Weather weather = agroAPI.getCurrentWeather(field.getLat(),field.getLng());
+			AgroStore agroStore = new AgroStore(Paths.get("stores/fieldStore.json"), new AgroAPI(AgroAPI.loadApiKey()));
+            Weather weather = agroStore.getCurrentWeather(field);
             fTemp.setText(Double.toString(weather.getTemperature()));
             fTempUnit.setText("K");
-            if(weather.getRainfall() == Double.NaN)
+            if(Double.isNaN(weather.getRainfall()))
                 fRain.setText("0");
             else
                 fRain.setText(Double.toString(weather.getRainfall()));

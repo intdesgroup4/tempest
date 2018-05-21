@@ -135,7 +135,11 @@ public class AgroAPI {
         double temp = json.getAsJsonObject("main").get("temp").getAsDouble();
         int hum  = json.getAsJsonObject("main").get("humidity").getAsInt();
         double wSpeed = json.getAsJsonObject("wind").get("speed").getAsDouble();
-        double wDir = json.getAsJsonObject("wind").get("deg").getAsDouble();
+
+        double wDir = Double.NaN;
+        if (json.getAsJsonObject("wind").has("deg")) {
+            wDir = json.getAsJsonObject("wind").get("deg").getAsDouble();
+        }
 
         List<Condition> conds = new ArrayList<>();
         for (JsonElement jelement : json.getAsJsonArray("weather")) {

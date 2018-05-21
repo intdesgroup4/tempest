@@ -13,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -58,7 +57,7 @@ public class Controller implements Initializable{
         	//send the flist off to the fieldstore
         	
         	//clear dbContent
-        	dbContent = new VBox();
+
         	//update the scrollpane with the new edited fieldlist
         	updatelist(fList);
         }

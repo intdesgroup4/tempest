@@ -31,7 +31,7 @@ public class FieldWeatherCapController {
         weatherIcon.setImage(image);
         fTemp.setText(Double.toString(weather.getTemperature()));
         fTempUnit.setText("K");
-        if(weather.getRainfall() == Double.NaN)
+        if(Double.isNaN(weather.getRainfall()))
             fRain.setText("0");
         else
             fRain.setText(Double.toString(weather.getRainfall()));
