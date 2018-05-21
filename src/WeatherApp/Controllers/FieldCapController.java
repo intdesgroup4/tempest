@@ -77,7 +77,7 @@ public class FieldCapController implements Initializable{
 
 	public void updateToCurrentWeather() {
         try {
-			AgroStore agroStore = new AgroStore(Paths.get("stores/fieldStore.json"), new AgroAPI(AgroAPI.loadApiKey()));
+			AgroStore agroStore = new AgroStore(Paths.get("stores/agroStore.json"), new AgroAPI(AgroAPI.loadApiKey()));
             Weather weather = agroStore.getCurrentWeather(field);
             fTemp.setText(Double.toString(weather.getTemperature()));
             fTempUnit.setText("K");
