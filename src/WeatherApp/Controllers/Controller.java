@@ -29,11 +29,12 @@ public class Controller implements Initializable{
     @FXML private VBox dbContent = new VBox();
     @FXML private ScrollPane dashboardList = new ScrollPane(dbContent);
     private List<Field> fList;
+    private FieldStore store;
     private boolean editmode = false;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-        FieldStore store = new FieldStore(Paths.get("stores/fieldStore.json"));
+        store = new FieldStore(Paths.get("stores/fieldStore.json"));
         try {
             updatelist(store.getFields());
         } catch (IOException e) {
@@ -57,6 +58,9 @@ public class Controller implements Initializable{
         	//send the flist off to the fieldstore
         	
         	//clear dbContent
+
+            store.setFields(fList);
+            store.save();
 
         	//update the scrollpane with the new edited fieldlist
         	updatelist(fList);

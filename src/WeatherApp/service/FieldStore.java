@@ -42,6 +42,10 @@ public class FieldStore extends Store {
         return fields;
     }
 
+    public void setFields(List<Field> fields) {
+        this.fields = fields;
+    }
+
     @Override
     protected JsonElement serialise() {
         JsonArray jFields = new JsonArray();
