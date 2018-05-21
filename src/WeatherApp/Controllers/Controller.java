@@ -2,6 +2,7 @@ package WeatherApp.Controllers;
 
 import WeatherApp.model.Field;
 import WeatherApp.service.FieldStore;
+import WeatherApp.service.SettingsStore;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -99,7 +100,9 @@ public class Controller implements Initializable{
     private void updatelist(List<Field> fieldlist) throws IOException {
     	//updates the dashboard's field list by reading through the inputed fieldlist
     	fList = fieldlist;
-    	
+
+    	SettingsStore settingsStore = new SettingsStore(Paths.get("stores/generalSettingsStore.json"));
+
     	dbContent = new VBox();
     	// for each field load the template and create the node for the field capsule
     	for(Field field: fieldlist) {
@@ -131,6 +134,7 @@ public class Controller implements Initializable{
     		dbContent.getChildren().add(fieldCapNode);
 
     		FieldCapController capController = loader.<FieldCapController>getController();
+    		capController.setSettingsStore(settingsStore);
             capController.setField(field);
             capController.updateToCurrentWeather();
     	}

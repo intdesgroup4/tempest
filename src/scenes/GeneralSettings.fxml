@@ -84,7 +84,7 @@
                      </font>
                   </Text>
                   <Pane prefHeight="72.0" prefWidth="158.0" />
-                  <Slider fx:id="intervalFrequencySlider" min="1"  max="12.0" prefHeight="25.0" prefWidth="170" scaleX="2.0" scaleY="2.0" snapToTicks="true" style="-fx-background-color: #B2EBF2; -fx-background-radius: 20;" />
+                  <Slider fx:id="intervalFrequencySlider" min="3.0"  max="12.0" prefHeight="25.0" prefWidth="170" scaleX="2.0" scaleY="2.0" snapToTicks="true" style="-fx-background-color: #B2EBF2; -fx-background-radius: 20;" />
                </children>
             </HBox>
          </children>
