@@ -16,7 +16,7 @@
                   <Font size="36.0" />
                </font>
             </Text>
-            <Button mnemonicParsing="false" text="Refresh">
+            <Button mnemonicParsing="false" text="Refresh" onAction="#refreshClicked">
                <font>
                   <Font size="18.0" />
                </font>
