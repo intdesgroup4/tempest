@@ -1,8 +1,11 @@
 package WeatherApp.service;
 
+import WeatherApp.model.Condition;
 import WeatherApp.model.Field;
 import WeatherApp.model.Soil;
 import WeatherApp.model.Weather;
+
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
@@ -10,6 +13,8 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAmount;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -50,7 +55,7 @@ public class AgroStore extends Store {
     /**
      * The weathers known and forecasted for a Field; known has index 0.
      */
-    private final Map<String, List<Weather>> weathers = new HashMap<>();
+    private Map<String, List<Weather>> weathers = new HashMap<>();
 
     /**
      * The soils known for a Field.
@@ -148,14 +153,82 @@ public class AgroStore extends Store {
 
     @Override
     protected JsonElement serialise() {
-        return new JsonObject();
-        //throw new IllegalStateException("Not yet implemented");
+    	 JsonArray wList = new JsonArray();
+     	for(String fieldId: weathers.keySet()) {
+     		for(Weather weather: weathers.get(fieldId)) {
+     			JsonObject jWet = new JsonObject();
+     			jWet.addProperty("Id", fieldId);
+     			jWet.addProperty("When", weather.getWhen().toString());
+     			jWet.addProperty("Temperature", weather.getTemperature());
+     			jWet.addProperty("Humidity", weather.getHumidity());
+     			jWet.addProperty("WindSpeed", weather.getWindSpeed());
+     			jWet.addProperty("WindDirection", weather.getWindDirection());
+     			jWet.addProperty("Rainfall", weather.getRainfall());
+     			
+     			//store conditions labelled as c0,c1,c2 etc in the same jsonobject:
+     			List<Condition> conditions = weather.getConditions();
+     			int numConditions = conditions.size();
+     			jWet.addProperty("numConditions",numConditions);
+     			for(int i = 0; i<numConditions;i++) {
+     				//conditions are stored using their ids
+     				jWet.addProperty("c" + i, conditions.get(i).getId());
+     			}
+     			
+     			wList.add(jWet);
+     		}
+     	}
+     return wList;
     }
 
     @Override
     protected void deserialise(JsonElement json) {
-        return;
-        //throw new IllegalStateException("Not yet implemented");
+    	//a list of all current Weather objects:
+    	List<Weather> allWeather = new ArrayList<>();
+    	//a parallel list of the associated field Id's for each weather element in allWeather
+    	List<String> allIds = new ArrayList<>();
+        weathers.clear();
+        //for dealing with string to instant conversions:
+        DateTimeFormatter dformatter = DateTimeFormatter.ofPattern(("yyyy-MM-dd HH:mm:ss")).withZone(ZoneId.systemDefault());
+        
+        for(JsonElement jElement: json.getAsJsonArray()) {
+        	JsonObject jWet = jElement.getAsJsonObject();
+        	String jId = jWet.get("Id").getAsString();
+        	Instant jWhen = Instant.from(dformatter.parse(jWet.get("When").toString()));
+        	double jTemperature = jWet.get("Temperature").getAsDouble();
+        	int jHumidity = jWet.get("Humidity").getAsInt();
+        	double jWindSpeed = jWet.get("WindSpeed").getAsDouble();
+        	double jWindDirection = jWet.get("WindDirection").getAsDouble();
+        	double jRainfall = jWet.get("Rainfall").getAsDouble();
+        	
+        	int numConditions = jWet.get("numConditions").getAsInt();
+        	List<Condition> jConditions = new ArrayList<>();
+        	for(int i=0; i<numConditions;i++) {
+        		jConditions.add(Condition.fromId(jWet.get("c" + i).getAsInt()));
+        	}
+        	
+        	Weather jWeather = new Weather(jWhen, jTemperature, jHumidity, jWindSpeed, jWindDirection, jConditions, jRainfall);
+        	allWeather.add(jWeather);
+        	allIds.add(jId);
+        }
+        
+        //iterate through the two lists to create the required hashmap (id to list of weather objects) format
+        Map<String,List<Weather>> finalMap = new HashMap<>();
+        for(int index = 0;index<allWeather.size()-1;index++) {
+        	String Id = allIds.get(index);
+        	Weather wet = allWeather.get(index);
+        	if(finalMap.keySet().contains(Id)) {
+        		//field Id is already in the map
+        		finalMap.get(Id).add(wet);
+        	}
+        	else {
+        		//must create the list for this unseen field id
+        		List<Weather> internalList = new ArrayList<>();
+        		internalList.add(wet);
+        		finalMap.put(Id, internalList);
+        	}
+        }
+        
+        this.weathers = finalMap;  
     }
 
     /**

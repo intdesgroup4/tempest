@@ -1,77 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="935.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="935.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ToolBar prefHeight="40.0" prefWidth="200.0">
+      <ToolBar prefHeight="64.0" prefWidth="200.0" style="-fx-background-color: #0097A7;">
         <items>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="General Settings" wrappingWidth="339.4140625">
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings" wrappingWidth="276.4140625">
                <font>
-                  <Font size="40.0" />
+                  <Font size="37.0" />
                </font>
             </Text>
-            <Pane prefHeight="21.0" prefWidth="72.0" />
-            <Button mnemonicParsing="false" text="Cancel">
+            <Pane prefHeight="50.0" prefWidth="143.0" />
+          <Button mnemonicParsing="false" style="-fx-background-color: #8BC34A; -fx-background-radius: 20;" text="Save" textAlignment="CENTER" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font size="20.0" />
                </font>
             </Button>
-          <Button mnemonicParsing="false" text="Save" textAlignment="CENTER">
+            <Button mnemonicParsing="false" style="-fx-background-color: #8BC34A; -fx-background-radius: 20;" text="Cancel" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font size="20.0" />
                </font>
             </Button>
         </items>
       </ToolBar>
-      <ImageView fitHeight="109.0" fitWidth="603.0" pickOnBounds="true" preserveRatio="true" />
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Temperature unit " textAlignment="CENTER" wrappingWidth="315.65496826171875">
-         <font>
-            <Font size="31.0" />
-         </font>
-      </Text>
-      <Pane prefHeight="113.0" prefWidth="600.0">
+      <VBox alignment="TOP_CENTER" prefHeight="343.0" prefWidth="600.0">
          <children>
-            <Text layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notifications" textAlignment="CENTER" underline="true" wrappingWidth="257.8344421386719">
-               <font>
-                  <Font size="31.0" />
-               </font>
-            </Text>
-            <ComboBox layoutX="25.0" layoutY="14.0" prefHeight="42.0" prefWidth="175.0" promptText="Celsius" />
+            <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="600.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Temperature unit :" wrappingWidth="240.65496826171875">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+                  <Pane prefHeight="72.0" prefWidth="77.0" />
+                  <ComboBox prefHeight="42.0" prefWidth="261.0" promptText="Celsius" style="-fx-background-color: #B2EBF2; -fx-background-radius: 20;" />
+               </children>
+            </HBox>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#eeeeee" height="9.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="461.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="600.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Notifications:" wrappingWidth="222.65496826171875">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+                  <Pane prefHeight="72.0" prefWidth="127.0" />
+                  <CheckBox mnemonicParsing="false" prefHeight="40.0" prefWidth="229.0" style="-fx-background-color: #B2EBF2; -fx-background-radius: 20;" text="Toggle Notifications">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </HBox>
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#eeeeee" height="9.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="461.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="600.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Text Size:" wrappingWidth="186.65496826171875">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+                  <Pane prefHeight="72.0" prefWidth="158.0" />
+                  <Slider prefHeight="19.0" prefWidth="156.0" scaleX="2.0" scaleY="2.0" snapToTicks="true" style="-fx-background-color: #B2EBF2; -fx-background-radius: 20;" />
+               </children>
+            </HBox>
          </children>
-      </Pane>
-      <Pane prefHeight="100.0" prefWidth="600.0">
-         <children>
-            <CheckBox layoutX="31.0" layoutY="20.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="271.0" text="Send me notifications">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </CheckBox>
-         </children>
-      </Pane>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text size" textAlignment="CENTER" underline="true" wrappingWidth="198.40411376953125">
-         <font>
-            <Font size="31.0" />
-         </font>
-      </Text>
-      <Pane prefHeight="106.0" prefWidth="600.0">
-         <children>
-            <Slider layoutX="97.0" layoutY="35.0" prefHeight="18.0" prefWidth="443.0" />
-         </children>
-      </Pane>
-      <Pane prefHeight="37.0" prefWidth="600.0" />
-      <HBox prefHeight="57.0" prefWidth="600.0">
-         <children>
-            <Pane prefHeight="57.0" prefWidth="29.0" />
-         </children>
-      </HBox>
-      <ImageView fitHeight="285.0" fitWidth="603.0" pickOnBounds="true" preserveRatio="true" />
+      </VBox>
+      <Pane prefHeight="106.0" prefWidth="600.0" />
    </children>
 </VBox>
