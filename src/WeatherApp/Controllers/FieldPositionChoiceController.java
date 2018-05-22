@@ -18,6 +18,9 @@ public class FieldPositionChoiceController {
     @FXML
     private Button cancelButton;
 
+    /*
+    cancels the process and reloads the dashboard
+     */
     @FXML
     public void cancelClicked() throws IOException {
         Stage stage = (Stage)cancelButton.getScene().getWindow();
@@ -27,6 +30,9 @@ public class FieldPositionChoiceController {
         stage.show();
     }
 
+    /*
+    loads the map screen for the user
+     */
     @FXML
     public void mapClicked() throws IOException {
         Stage stage = (Stage)cancelButton.getScene().getWindow();
@@ -36,6 +42,9 @@ public class FieldPositionChoiceController {
         stage.show();
     }
 
+    /*
+    loads the coordinate choice screen for the user
+     */
     @FXML
     public void coordClicked() throws IOException {
         Stage stage = (Stage)cancelButton.getScene().getWindow();
