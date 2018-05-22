@@ -1,5 +1,6 @@
 package WeatherApp.Controllers;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
@@ -12,6 +13,8 @@ import WeatherApp.service.AgroStore;
 import WeatherApp.service.SettingsStore;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
@@ -31,6 +34,10 @@ public class FieldCapController implements Initializable{
     @FXML private Text latitude;
     @FXML private Text longitude;
     @FXML private Rectangle fColour;
+    @FXML private ImageView TemperatureIcon;
+    @FXML private ImageView RainfallIcon;
+    @FXML private ImageView WindSpeedIcon;
+    
     private Field field;
     private SettingsStore settingsStore;
 
@@ -76,9 +83,22 @@ public class FieldCapController implements Initializable{
         this.field = field;
         Color c = field.getColour();
         fColour.setFill(c);
-        latitude.setText(Double.toString(field.getLat()));
-        longitude.setText(Double.toString(field.getLng()));
+        latitude.setText(Double.toString(field.getLat()).substring(0, 8));
+        longitude.setText(Double.toString(field.getLng()).substring(0, 8));
         fName.setText(field.getName());
+        
+        //set the icons/weather symbols:
+        File tempIconFile = new File("resources/weather-symbols/TemperatureIcon.png");
+        Image itempIcon = new Image(tempIconFile.toURI().toString());
+        TemperatureIcon.setImage(itempIcon);
+        
+        File RainfallIconFile = new File("resources/weather-symbols/RainfallIcon.png");
+        Image iRainfallIcon = new Image(RainfallIconFile.toURI().toString());
+        RainfallIcon.setImage(iRainfallIcon);
+        
+        File WindSpeedIconFile = new File("resources/weather-symbols/WindSpeedIcon.png");
+        Image iWindSpeedIcon = new Image(WindSpeedIconFile.toURI().toString());
+        WindSpeedIcon.setImage(iWindSpeedIcon);
     }
 
     public void setSettingsStore(SettingsStore settingsStore) {
