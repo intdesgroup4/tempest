@@ -52,7 +52,7 @@ public class AgroStore extends Store {
     /**
      * The weathers known and forecasted for a Field; known has index 0.
      */
-    private Map<String, List<Weather>> weathers = new HashMap<>();
+    private Map<String, List<Weather>> weathers;
 
     /**
      * The soils known for a Field.
@@ -155,7 +155,7 @@ public class AgroStore extends Store {
      		for(Weather weather: weathers.get(fieldId)) {
      			JsonObject jWet = new JsonObject();
      			jWet.addProperty("Id", fieldId);
-     			jWet.addProperty("When", weather.getWhen().toString());
+     			jWet.addProperty("When", weather.getWhen().getEpochSecond());
      			jWet.addProperty("Temperature", weather.getTemperature());
      			jWet.addProperty("Humidity", weather.getHumidity());
      			jWet.addProperty("WindSpeed", weather.getWindSpeed());
@@ -183,16 +183,19 @@ public class AgroStore extends Store {
     	List<Weather> allWeather = new ArrayList<>();
     	//a parallel list of the associated field Id's for each weather element in allWeather
     	List<String> allIds = new ArrayList<>();
-        if (weathers == null)
-            return;
+
+        if (weathers == null) {
+            // owing to the weird order that code is called in on initialisation, we have to initialise the variable here
+            // see the comments in FieldStore for a better explanation of this issue
+            weathers = new HashMap<>();
+        }
+
         weathers.clear();
-        //for dealing with string to instant conversions:
-        DateTimeFormatter dformatter = DateTimeFormatter.ofPattern(("yyyy-MM-dd HH:mm:ss")).withZone(ZoneId.systemDefault());
         
         for(JsonElement jElement: json.getAsJsonArray()) {
         	JsonObject jWet = jElement.getAsJsonObject();
         	String jId = jWet.get("Id").getAsString();
-        	Instant jWhen = Instant.from(dformatter.parse(jWet.get("When").toString()));
+        	Instant jWhen = Instant.from(Instant.ofEpochSecond(jWet.get("When").getAsLong()));
         	double jTemperature = jWet.get("Temperature").getAsDouble();
         	int jHumidity = jWet.get("Humidity").getAsInt();
         	double jWindSpeed = jWet.get("WindSpeed").getAsDouble();
