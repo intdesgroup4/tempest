@@ -38,15 +38,9 @@ public class MapCreator {
                 final JXMapViewer mapViewer = new JXMapViewer();
                 mapViewer.setTileFactory(tileFactory);
 
-
-
-
-
                 // Set the focus
                 mapViewer.setZoom(7);
                 mapViewer.setAddressLocation(waypoint.getPosition());
-
-
 
                 // Add interactions
                 MouseInputListener mia = new PanMouseInputListener(mapViewer);
@@ -60,7 +54,6 @@ public class MapCreator {
                 mapViewer.addKeyListener(new PanKeyListener(mapViewer));
 
                 //Waypoint stuff bois
-                //
                 Set<Waypoint> waypoints = new HashSet<>();
                 waypoints.add(waypoint);
 
@@ -68,7 +61,6 @@ public class MapCreator {
                 PointAdapter pa = new PointAdapter(mapViewer,waypoint);
                 mapViewer.addMouseListener(pa);
                 mapViewer.addMouseListener(pa);
-
 
                 // Create a waypoint painter that takes all the waypoints
                 WaypointPainter<Waypoint> waypointPainter = new WaypointPainter<Waypoint>();
@@ -81,12 +73,12 @@ public class MapCreator {
                 CompoundPainter<JXMapViewer> painter = new CompoundPainter<JXMapViewer>(painters);
                 mapViewer.setOverlayPainter(painter);
 
-
                 swingNode.setContent(mapViewer);
 
                 mapViewer.repaint();
             }
         });
+
         swingNode.requestFocus();
     }
 }

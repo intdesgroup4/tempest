@@ -75,5 +75,4 @@ public class Field {
 	public void setColour(Color colour) {
 		this.colour = colour;
 	}
-
 }
