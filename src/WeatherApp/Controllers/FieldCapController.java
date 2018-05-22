@@ -35,11 +35,6 @@ public class FieldCapController implements Initializable{
     @FXML private Text longitude;
     @FXML private Rectangle fColour;
     @FXML private ImageView WeatherIcon;
-    /* Removed icons
-    @FXML private ImageView TemperatureIcon;
-    @FXML private ImageView RainfallIcon;
-    @FXML private ImageView WindSpeedIcon;
-    */
     
     private Field field;
     private SettingsStore settingsStore;
@@ -82,6 +77,9 @@ public class FieldCapController implements Initializable{
         fWindspeedUnit.setText(txt);
     }
 
+    /*
+     * Sets field and updates the panel elements dependent that use the field information
+     */
     public void setField(Field field) {
         this.field = field;
         Color c = field.getColour();
@@ -89,27 +87,15 @@ public class FieldCapController implements Initializable{
         latitude.setText(Double.toString(field.getLat()).substring(0, 8));
         longitude.setText(Double.toString(field.getLng()).substring(0, 8));
         fName.setText(field.getName());
-        
-        /* Removed icons
-        //set the icons/weather symbols:
-        File tempIconFile = new File("resources/weather-symbols/TemperatureIcon.png");
-        Image itempIcon = new Image(tempIconFile.toURI().toString());
-        TemperatureIcon.setImage(itempIcon);
-        
-        File RainfallIconFile = new File("resources/weather-symbols/RainfallIcon.png");
-        Image iRainfallIcon = new Image(RainfallIconFile.toURI().toString());
-        RainfallIcon.setImage(iRainfallIcon);
-        
-        File WindSpeedIconFile = new File("resources/weather-symbols/WindSpeedIcon.png");
-        Image iWindSpeedIcon = new Image(WindSpeedIconFile.toURI().toString());
-        WindSpeedIcon.setImage(iWindSpeedIcon);
-        */
     }
 
     public void setSettingsStore(SettingsStore settingsStore) {
         this.settingsStore = settingsStore;
     }
 
+    /*
+     * checks the current settings for units and converts the values to the appropriate unit
+     */
     private double convertTemp(Weather weather) {
         if (settingsStore.getTempUnit().equals("C"))
             return weather.getTemperature() - 273.15;
@@ -128,6 +114,9 @@ public class FieldCapController implements Initializable{
             return weather.getWindSpeed();
     }
 
+    /*
+     * updates the weather displayed in the quick info part of the panel
+     */
     public void updateToCurrentWeather() {
         try {
 

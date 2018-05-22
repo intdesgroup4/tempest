@@ -40,19 +40,10 @@ public class FieldWeatherCapController {
     private Text fHumidity;
     @FXML
     private Text fHumidityUnit;
-    /*
-    @FXML
-    private ImageView fTemperatureIcon;
-    @FXML
-    private ImageView fRainfallIcon;
-    @FXML
-    private ImageView fWindSpeedIcon;
-    @FXML
-    private ImageView fWindDirectionIcon;
-    @FXML
-    private ImageView fHumidityIcon;
-	*/
 
+    /*
+     * converts the temperature to the appropriate units decided on in settings
+     */
     private double convertTemp(Weather weather, SettingsStore settingsStore) {
         if (settingsStore.getTempUnit().equals("C"))
             return weather.getTemperature() - 273.15;
@@ -61,7 +52,10 @@ public class FieldWeatherCapController {
         else
             return weather.getTemperature();
     }
-
+    
+    /*
+     * converts the windspeed to the appropriate units decided on in settings
+     */
     private double convertWind(Weather weather, SettingsStore settingsStore) {
         if (settingsStore.getWindUnit().equals("mph"))
             return weather.getWindSpeed() * 2.23694;
@@ -70,7 +64,10 @@ public class FieldWeatherCapController {
         else
             return weather.getWindSpeed();
     }
-
+    
+    /*
+     * sets the weather data for this panel and updates all the panel elements to display it
+     */
     public void setWeather(Weather weather, SettingsStore settingsStore) {
         NumberFormat nf = NumberFormat.getInstance();
         nf.setMaximumFractionDigits(1);
@@ -102,29 +99,6 @@ public class FieldWeatherCapController {
 
         fHumidity.setText(nf.format(weather.getHumidity()));
         fHumidityUnit.setText("%");
-        
-        /*Setting WeatherIcons:
-        File tempIconFile = new File("resources/weather-symbols/TemperatureIcon.png");
-        Image tempIcon = new Image(tempIconFile.toURI().toString());
-        fTemperatureIcon.setImage(tempIcon);
-        
-        File RainfallIconFile = new File("resources/weather-symbols/RainfallIcon.png");
-        Image RainfallIcon = new Image(RainfallIconFile.toURI().toString());
-        fRainfallIcon.setImage(RainfallIcon);
-        
-        File WindSpeedIconFile = new File("resources/weather-symbols/WindSpeedIcon.png");
-        Image WindSpeedIcon = new Image(WindSpeedIconFile.toURI().toString());
-        fWindSpeedIcon.setImage(WindSpeedIcon);
-        
-        File WindDirectionIconFile = new File("resources/weather-symbols/WindDirectionIcon.png");
-        Image WindDirectionIcon = new Image(WindDirectionIconFile.toURI().toString());
-        fWindDirectionIcon.setImage(WindDirectionIcon);
-        
-        File HumidityIconFile = new File("resources/weather-symbols/HumidityIcon.png");
-        Image HumidityIcon = new Image(HumidityIconFile.toURI().toString());
-        fHumidityIcon.setImage(HumidityIcon);
-        */
-        
     }
 
 }
