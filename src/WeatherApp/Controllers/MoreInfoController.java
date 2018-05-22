@@ -32,7 +32,7 @@ import java.util.List;
 public class MoreInfoController {
 
     private Field field;
-    private AgroStore agroStore = new AgroStore(Paths.get("stores/fieldStore.json"), new AgroAPI(AgroAPI.loadApiKey()));
+    private AgroStore agroStore = new AgroStore(Paths.get("stores/agroStore.json"), new AgroAPI(AgroAPI.loadApiKey()));
 
     @FXML
     private Button backButton;
@@ -75,8 +75,10 @@ public class MoreInfoController {
     private void getWeatherForecast(SettingsStore settingsStore) throws IOException {
         int interval = settingsStore.getFrequency() / 3;
 
+        agroStore.load();
         List<Weather> weatherList = agroStore.getForecastWeather(field);
         weatherList.add(0, agroStore.getCurrentWeather(field));
+        agroStore.save(); // save any fetched data for caching
 
         Collections.sort(weatherList, Comparator.comparing(Weather::getWhen));
 
@@ -95,7 +97,9 @@ public class MoreInfoController {
     }
 
     private void getCurrentSoil(SettingsStore settingsStore) {
+        agroStore.load();
         Soil soil = agroStore.getCurrentSoil(field);
+        agroStore.save(); // save any fetched data for caching
         NumberFormat nf = NumberFormat.getInstance();
         nf.setMaximumFractionDigits(1);
         soilGroundTempText.setText(nf.format(convertTemp(soil.getSurfaceTemp(),settingsStore)) + settingsStore.getTempUnitIcon());
