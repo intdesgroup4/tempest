@@ -119,7 +119,7 @@ public class MoreInfoController {
     @FXML
     public void backClicked() throws IOException {
         Stage stage = (Stage)backButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../../scenes/dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/scenes/dashboard.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

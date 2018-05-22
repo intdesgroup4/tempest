@@ -58,7 +58,7 @@ public class GeneralSettingsController implements Initializable {
     @FXML
     public void cancelClicked() throws IOException {
         Stage stage = (Stage)cancelButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../../scenes/dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/scenes/dashboard.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -75,7 +75,7 @@ public class GeneralSettingsController implements Initializable {
         settingsStore.save();
 
         Stage stage = (Stage)saveButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("../../scenes/dashboard.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/scenes/dashboard.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
