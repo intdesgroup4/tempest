@@ -44,7 +44,7 @@ public class GeneralSettingsController implements Initializable {
         windSpeedUnitCombo.getItems().addAll("mph","kmph","m/s");
         windSpeedUnitCombo.setValue(settingsStore.getWindUnit());
 
-        intervalFrequencySlider.setMajorTickUnit(1.);
+        intervalFrequencySlider.setMajorTickUnit(3.);
         intervalFrequencySlider.setMinorTickCount(0);
         intervalFrequencySlider.setShowTickLabels(true);
         intervalFrequencySlider.setShowTickMarks(true);
