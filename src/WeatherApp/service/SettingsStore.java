@@ -45,6 +45,15 @@ public class SettingsStore extends Store {
         return tempUnit;
     }
 
+    public String getTempUnitIcon() {
+        if (tempUnit.equals("C"))
+            return "°C";
+        else if (tempUnit.equals("F"))
+            return  "°F";
+        else
+            return  "K";
+    }
+
     public String getTempUnitFull() {
         if (tempUnit.equals("C"))
             return "Celsius (°C)";

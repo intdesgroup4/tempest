@@ -2,6 +2,7 @@ package WeatherApp.Controllers;
 
 import WeatherApp.model.Field;
 import WeatherApp.service.FieldStore;
+import WeatherApp.service.SettingsStore;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,8 +33,8 @@ public class Controller implements Initializable{
     private FieldStore store;
     private boolean editmode = false;
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         store = new FieldStore(Paths.get("stores/fieldStore.json"));
         try {
             updatelist(store.getFields());
@@ -41,35 +42,35 @@ public class Controller implements Initializable{
             e.printStackTrace();
         }
     }
-	
+
     @FXML
     private void editClicked() throws IOException{
         editmode = !editmode;
         if(editmode) {
-        	//switch the scrollpane to contain the editfieldcapsules
-        	editButton.setText("Done");
-        	addButton.setVisible(false);
-        	editupdate();
+            //switch the scrollpane to contain the editfieldcapsules
+            editButton.setText("Done");
+            addButton.setVisible(false);
+            editupdate();
         }
         else {
-        	editButton.setText("Edit");
-        	addButton.setVisible(true);
-        	//switch the scrollpane to contain the fieldcapsules again
-        	//send the flist off to the fieldstore
-        	
-        	//clear dbContent
+            editButton.setText("Edit");
+            addButton.setVisible(true);
+            //switch the scrollpane to contain the fieldcapsules again
+            //send the flist off to the fieldstore
+
+            //clear dbContent
 
             store.setFields(fList);
             store.save();
 
-        	//update the scrollpane with the new edited fieldlist
-        	updatelist(fList);
+            //update the scrollpane with the new edited fieldlist
+            updatelist(fList);
         }
     }
 
     @FXML
     private void settingsClicked() throws IOException {
-	    Stage stage = (Stage)addButton.getScene().getWindow();
+        Stage stage = (Stage)addButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("/scenes/GeneralSettings.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -95,18 +96,20 @@ public class Controller implements Initializable{
         FieldCapController capController = loader.<FieldCapController>getController();
         capController.setField(field);
     }
-    
-    private void updatelist(List<Field> fieldlist) throws IOException {
-    	//updates the dashboard's field list by reading through the inputed fieldlist
-    	fList = fieldlist;
-    	
-    	dbContent = new VBox();
-    	// for each field load the template and create the node for the field capsule
-    	for(Field field: fieldlist) {
-    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/FieldCapsuleTemplate.fxml"));
-    		Node fieldCapNode = loader.load();
 
-    		// add click event handler
+    private void updatelist(List<Field> fieldlist) throws IOException {
+        //updates the dashboard's field list by reading through the inputed fieldlist
+        fList = fieldlist;
+
+        SettingsStore settingsStore = new SettingsStore(Paths.get("stores/generalSettingsStore.json"));
+
+        dbContent = new VBox();
+        // for each field load the template and create the node for the field capsule
+        for(Field field: fieldlist) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/FieldCapsuleTemplate.fxml"));
+            Node fieldCapNode = loader.load();
+
+            // add click event handler
             fieldCapNode.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
@@ -128,38 +131,39 @@ public class Controller implements Initializable{
             });
 
             // add the capsule to dashboard content
-    		dbContent.getChildren().add(fieldCapNode);
+            dbContent.getChildren().add(fieldCapNode);
 
-    		FieldCapController capController = loader.<FieldCapController>getController();
+            FieldCapController capController = loader.<FieldCapController>getController();
+            capController.setSettingsStore(settingsStore);
             capController.setField(field);
             capController.updateToCurrentWeather();
-    	}
+        }
 
-    	dashboardList.setContent(dbContent);
+        dashboardList.setContent(dbContent);
     }
 
-	public void setfList(List<Field> fList) {
-		this.fList = fList;
-	}
-	
-	public void editupdate() throws IOException {
-		//updates the edit panels
-		VBox dbContentNew = new VBox();
+    public void setfList(List<Field> fList) {
+        this.fList = fList;
+    }
 
-		for(Field field: fList) {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/editmodeCapsule.fxml"));
-    		Node editCapNode = loader.load();
-    		dbContentNew.getChildren().add(editCapNode);
-    		EditFieldCapController capController = loader.<EditFieldCapController>getController();
+    public void editupdate() throws IOException {
+        //updates the edit panels
+        VBox dbContentNew = new VBox();
+
+        for(Field field: fList) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/editmodeCapsule.fxml"));
+            Node editCapNode = loader.load();
+            dbContentNew.getChildren().add(editCapNode);
+            EditFieldCapController capController = loader.<EditFieldCapController>getController();
             capController.setField(field);
             capController.passlist(fList);
             capController.passparent(this);
-    	}
-    	dashboardList.setContent(dbContentNew);
-	}
-	
-	public void removeFarm(Field field) throws IOException {
-		fList.remove(field);
-		editupdate();
-	}
+        }
+        dashboardList.setContent(dbContentNew);
+    }
+
+    public void removeFarm(Field field) throws IOException {
+        fList.remove(field);
+        editupdate();
+    }
 }
