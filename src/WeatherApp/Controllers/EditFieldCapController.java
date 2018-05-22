@@ -51,6 +51,9 @@ public class EditFieldCapController implements Initializable{
 		movementbuttons();
 	}
 	
+	/*
+	 * Delete a field
+	 */
 	public void deleteClicked() throws IOException {
 		//first check are you sure with a popup alert:
 		Alert alert = new Alert(AlertType.CONFIRMATION, "Delete " + field.getName() + "?", ButtonType.YES, ButtonType.CANCEL);

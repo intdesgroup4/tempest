@@ -15,6 +15,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/scenes/dashboard.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setTitle("Tempest");
+        primaryStage.setResizable(false);
+        primaryStage.setWidth(600);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

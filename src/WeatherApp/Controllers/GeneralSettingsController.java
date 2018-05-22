@@ -34,7 +34,9 @@ public class GeneralSettingsController implements Initializable {
     @FXML
     private CheckBox notificationCheckBox;
 
-
+    /*
+    function loads the previous settings and updates the display
+     */
     public void initialize(URL location, ResourceBundle resources) {
         settingsStore = new SettingsStore(Paths.get("stores/generalSettingsStore.json"));
         tempUnitCombo.getItems().addAll("Celsius (°C)","Fahrenheit (°F)","Kelvin (K)");
@@ -55,6 +57,9 @@ public class GeneralSettingsController implements Initializable {
 
     }
 
+    /*
+    cancels the settings changes and goes to dashboard
+     */
     @FXML
     public void cancelClicked() throws IOException {
         Stage stage = (Stage)cancelButton.getScene().getWindow();
@@ -64,6 +69,9 @@ public class GeneralSettingsController implements Initializable {
         stage.show();
     }
 
+    /*
+    saves the changes then returns to dashboard
+     */
     @FXML
     public void saveClicked() throws IOException {
 
