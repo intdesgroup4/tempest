@@ -27,30 +27,30 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Text>
-      <ImageView fx:id="TemperatureIcon" fitHeight="76.0" fitWidth="69.0" layoutX="177.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" />
-      <Text fx:id="fTemp" fill="WHITE" layoutX="202.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17" textAlignment="RIGHT" wrappingWidth="142.85302734375">
+      <ImageView fx:id="TemperatureIcon" fitHeight="76.0" fitWidth="69.0" layoutX="168.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" />
+      <Text fx:id="fTemp" fill="WHITE" layoutX="193.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17" textAlignment="RIGHT" wrappingWidth="142.85302734375">
          <font>
             <Font size="57.0" />
          </font>
       </Text>
-      <Text fx:id="fTempUnit" fill="WHITE" layoutX="306.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="°C">
+      <Text fx:id="fTempUnit" fill="WHITE" layoutX="297.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="°C">
          <font>
             <Font size="27.0" />
          </font>
       </Text>
-      <ImageView fx:id="RainfallIcon" fitHeight="69.0" fitWidth="55.0" layoutX="355.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" />
-      <Text fx:id="fRain" fill="WHITE" layoutX="393.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" textAlignment="RIGHT" wrappingWidth="76.85302734375">
+      <ImageView fx:id="RainfallIcon" fitHeight="69.0" fitWidth="55.0" layoutX="339.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" scaleX="0.9" scaleY="0.9" />
+      <Text fx:id="fRain" fill="WHITE" layoutX="374.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" textAlignment="RIGHT" wrappingWidth="76.85302734375">
          <font>
             <Font size="57.0" />
          </font>
       </Text>
-      <Text fx:id="fRainUnit" fill="WHITE" layoutX="415.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mm">
+      <Text fx:id="fRainUnit" fill="WHITE" layoutX="396.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mm">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <ImageView fx:id="WindSpeedIcon" fitHeight="51.0" fitWidth="65.0" layoutX="475.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
-      <Text fx:id="fWindspeed" fill="WHITE" layoutX="494.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" textAlignment="RIGHT" wrappingWidth="100.05303955078125">
+      <ImageView fx:id="WindSpeedIcon" fitHeight="51.0" fitWidth="65.0" layoutX="442.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" />
+      <Text fx:id="fWindspeed" fill="WHITE" layoutX="493.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="35.0" textAlignment="RIGHT" wrappingWidth="104.85302734375">
          <font>
             <Font size="57.0" />
          </font>
