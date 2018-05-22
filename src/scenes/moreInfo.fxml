@@ -3,9 +3,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -13,13 +15,13 @@
    <children>
       <ToolBar prefHeight="64.0" prefWidth="600.0" style="-fx-background-color: #0097A7;">
          <items>
-            <Pane fx:id="fColour" prefWidth="50" />
+            <Rectangle fx:id="fColourRec" arcHeight="100.0" arcWidth="100.0" fill="DODGERBLUE" height="45.0" stroke="WHITE" strokeType="INSIDE" width="45.0" />
             <Text fx:id="nameText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="(fieldname)" wrappingWidth="219.861328125">
                <font>
                   <Font size="36.0" />
                </font>
             </Text>
-            <Pane prefHeight="48.0" prefWidth="34.0" />
+            <Pane prefHeight="48.0" prefWidth="35.0" />
             <Button mnemonicParsing="false" onAction="#refreshClicked" style="-fx-background-radius: 20; -fx-background-color: #00BCD4;" text="Refresh" textFill="WHITE">
                <font>
                   <Font size="20.0" />
@@ -37,19 +39,59 @@
             </Button>
          </items>
       </ToolBar>
-      <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #B2EBF2;">
+      <VBox prefHeight="220.0" prefWidth="600.0" style="-fx-background-color: #B2EBF2;">
          <children>
-            <Text text="Soil Ground Temperature (K)" />
-            <Text fx:id="soilGroundTempText" text="(soilGroundTemp)" />
-            <Text text="Soil Underground Temperature (10cm) (K)" />
-            <Text fx:id="soilUndergroundTempText" text="(soilUndergroundTemp)" />
-            <Text text="Soil Moisture" />
-            <Text fx:id="soilMoistureText" text="(Soil Moisture)" />
+            <HBox prefHeight="85.0" prefWidth="600.0">
+               <children>
+                  <VBox alignment="CENTER" minWidth="30.0" prefHeight="85.0" prefWidth="33.0">
+                     <children>
+                        <Text fill="#bdbdbd" rotate="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOIL">
+                           <font>
+                              <Font size="37.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" maxWidth="190.0" minWidth="190.0" prefHeight="34.0" prefWidth="190.0">
+                     <children>
+                        <Pane prefHeight="19.0" prefWidth="180.0" />
+                        <Text fill="#212121" text="Ground Temperature (K)" />
+                        <Text fx:id="soilGroundTempText" fill="#757575" text="(soilGroundTemp)">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" minWidth="190.0" prefHeight="34.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="19.0" prefWidth="180.0" />
+                        <Text fill="#212121" text="Underground Temperature (10cm) (K)" />
+                        <Text fx:id="soilUndergroundTempText" fill="#757575" text="(soilUndergroundTemp)">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" minWidth="190.0" prefHeight="34.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="19.0" prefWidth="180.0" />
+                        <Text fill="#212121" text="Moisture" />
+                        <Text fx:id="soilMoistureText" fill="#757575" text="(Soil Moisture)">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
          </children>
       </VBox>
        <StackPane prefHeight="919.0" prefWidth="600.0">
            <children>
-               <ScrollPane fx:id="dashboardList" prefHeight="200.0" prefWidth="200.0" />
+               <ScrollPane fx:id="dashboardList" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" />
            </children>
        </StackPane>
    </children>

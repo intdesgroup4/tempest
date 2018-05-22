@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
+import java.io.File;
 import java.text.NumberFormat;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -39,6 +40,16 @@ public class FieldWeatherCapController {
     private Text fHumidity;
     @FXML
     private Text fHumidityUnit;
+    @FXML
+    private ImageView fTemperatureIcon;
+    @FXML
+    private ImageView fRainfallIcon;
+    @FXML
+    private ImageView fWindSpeedIcon;
+    @FXML
+    private ImageView fWindDirectionIcon;
+    @FXML
+    private ImageView fHumidityIcon;
 
 
     private double convertTemp(Weather weather, SettingsStore settingsStore) {
@@ -86,10 +97,17 @@ public class FieldWeatherCapController {
         fWindspeed.setText(nf.format(convertWind(weather,settingsStore)));
         fWindspeedUnit.setText(settingsStore.getWindUnit());
 
-        fWindDirection.setText(nf.format(weather.getWindDirection()) + "Â°");
+        fWindDirection.setText(nf.format(weather.getWindDirection()) + "°");
 
         fHumidity.setText(nf.format(weather.getHumidity()));
         fHumidityUnit.setText("%");
+        
+        //Setting WeatherIcons:
+        File tempIconFile = new File("resources/weather-symbols/TemperatureIcon.png");
+        Image tempIcon = new Image(tempIconFile.toURI().toString());
+        fTemperatureIcon.setImage(tempIcon);
+        
+        
     }
 
 }

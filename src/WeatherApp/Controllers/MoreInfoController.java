@@ -17,6 +17,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -40,7 +42,7 @@ public class MoreInfoController {
     @FXML
     private Text nameText;
     @FXML
-    private Pane fColour;
+    private Rectangle fColourRec;
     @FXML
     private Text soilMoistureText;
     @FXML
@@ -64,7 +66,8 @@ public class MoreInfoController {
 
     private void updateField() {
         nameText.setText(field.getName());
-        fColour.setBackground(new Background(new BackgroundFill(field.getColour(), null, null)));
+        Color c = field.getColour();
+        fColourRec.setFill(c);
     }
 
     private void getWeatherForecast() throws IOException {
