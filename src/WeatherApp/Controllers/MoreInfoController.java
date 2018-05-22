@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.text.NumberFormat;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -57,8 +58,9 @@ public class MoreInfoController {
         this.field = field;
         updateField();
         try {
-            getWeatherForecast();
-            getCurrentSoil();
+            SettingsStore settingsStore = new SettingsStore(Paths.get("stores/generalSettingsStore.json"));
+            getWeatherForecast(settingsStore);
+            getCurrentSoil(settingsStore);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -70,8 +72,7 @@ public class MoreInfoController {
         fColourRec.setFill(c);
     }
 
-    private void getWeatherForecast() throws IOException {
-        SettingsStore settingsStore = new SettingsStore(Paths.get("stores/generalSettingsStore.json"));
+    private void getWeatherForecast(SettingsStore settingsStore) throws IOException {
         int interval = settingsStore.getFrequency() / 3;
 
         List<Weather> weatherList = agroStore.getForecastWeather(field);
@@ -93,11 +94,22 @@ public class MoreInfoController {
         dashboardList.setContent(dbContent);
     }
 
-    private void getCurrentSoil() {
+    private void getCurrentSoil(SettingsStore settingsStore) {
         Soil soil = agroStore.getCurrentSoil(field);
-        soilGroundTempText.setText(Double.toString(soil.getSurfaceTemp()));
-        soilUndergroundTempText.setText(Double.toString(soil.getUndergroundTemp()));
-        soilMoistureText.setText(Double.toString(soil.getMoisture()));
+        NumberFormat nf = NumberFormat.getInstance();
+        nf.setMaximumFractionDigits(1);
+        soilGroundTempText.setText(nf.format(convertTemp(soil.getSurfaceTemp(),settingsStore)) + settingsStore.getTempUnitIcon());
+        soilUndergroundTempText.setText(nf.format(convertTemp(soil.getUndergroundTemp(),settingsStore)) + settingsStore.getTempUnitIcon());
+        soilMoistureText.setText(nf.format(soil.getMoisture()));
+    }
+
+    private double convertTemp(double kelvin, SettingsStore settingsStore) {
+        if (settingsStore.getTempUnit().equals("C"))
+            return kelvin - 273.15;
+        else if (settingsStore.getTempUnit().equals("F"))
+            return (kelvin * 9) / 5 - 459.67;
+        else
+            return kelvin;
     }
 
     @FXML
@@ -119,8 +131,9 @@ public class MoreInfoController {
 
     @FXML
     public void refreshClicked() throws IOException {
-        getWeatherForecast();
-        getCurrentSoil();
+        SettingsStore settingsStore = new SettingsStore(Paths.get("stores/generalSettingsStore.json"));
+        getWeatherForecast(settingsStore);
+        getCurrentSoil(settingsStore);
     }
 
 }

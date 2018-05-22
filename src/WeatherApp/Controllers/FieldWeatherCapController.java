@@ -97,7 +97,7 @@ public class FieldWeatherCapController {
         fWindspeed.setText(nf.format(convertWind(weather,settingsStore)));
         fWindspeedUnit.setText(settingsStore.getWindUnit());
 
-        fWindDirection.setText(nf.format(weather.getWindDirection()) + "°");
+        fWindDirection.setText(nf.format(weather.getWindDirection()) + "");
 
         fHumidity.setText(nf.format(weather.getHumidity()));
         fHumidityUnit.setText("%");

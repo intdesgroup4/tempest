@@ -55,7 +55,7 @@
                   <VBox alignment="TOP_CENTER" maxWidth="190.0" minWidth="190.0" prefHeight="34.0" prefWidth="190.0">
                      <children>
                         <Pane prefHeight="19.0" prefWidth="180.0" />
-                        <Text fill="#212121" text="Ground Temperature (K)" />
+                        <Text fill="#212121" text="Ground Temperature" />
                         <Text fx:id="soilGroundTempText" fill="#757575" text="(soilGroundTemp)">
                            <font>
                               <Font size="25.0" />
@@ -66,7 +66,7 @@
                   <VBox alignment="TOP_CENTER" minWidth="190.0" prefHeight="34.0" prefWidth="200.0">
                      <children>
                         <Pane prefHeight="19.0" prefWidth="180.0" />
-                        <Text fill="#212121" text="Underground Temperature (10cm) (K)" />
+                        <Text fill="#212121" text="Underground Temperature (10cm)" />
                         <Text fx:id="soilUndergroundTempText" fill="#757575" text="(soilUndergroundTemp)">
                            <font>
                               <Font size="25.0" />
