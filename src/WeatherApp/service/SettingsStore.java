@@ -37,6 +37,9 @@ public class SettingsStore extends Store {
         }
     }
 
+    /**
+     * Serialise global settings state into JSON
+     */
     @Override
     protected JsonElement serialise() {
         JsonObject settings = new JsonObject();
@@ -48,6 +51,10 @@ public class SettingsStore extends Store {
         return settings;
     }
 
+    /**
+     * Deserialize global settings from JSON
+     * @param json
+     */
     @Override
     protected void deserialise(JsonElement json) {
         JsonObject settings = json.getAsJsonObject();
@@ -75,6 +82,10 @@ public class SettingsStore extends Store {
             return  "K";
     }
 
+    /**
+     * Nice way of getting temperature unit
+     * @return
+     */
     public String getTempUnitFull() {
         if (tempUnit.equals("C"))
             return "Celsius (°C)";
@@ -100,6 +111,10 @@ public class SettingsStore extends Store {
         this.tempUnit = tempUnit;
     }
 
+    /**
+     * Nice way of setting temperature unit
+     * @param tempUnitFull
+     */
     public void setTempUnitFull(String tempUnitFull) {
         if(tempUnitFull.equals("Celsius (°C)"))
             tempUnit = "C";
