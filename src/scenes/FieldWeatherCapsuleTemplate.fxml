@@ -23,7 +23,7 @@
          </fill>
       </Rectangle>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3d0db40" height="6.0" layoutX="23.0" layoutY="161.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="559.0" />
-        <Text fx:id="tHour" fill="WHITE" layoutX="145.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hour" wrappingWidth="102.00001001358032">
+        <Text fx:id="tHour" fill="WHITE" layoutX="189.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hour" wrappingWidth="102.00001001358032">
          <font>
             <Font size="30.0" />
          </font></Text>
@@ -53,7 +53,7 @@
                 <Font size="45.0" />
             </font>
         </Text>
-      <Text fx:id="tDate" fill="WHITE" layoutX="10.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="136.00001001358032">
+      <Text fx:id="tDate" fill="WHITE" layoutX="6.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="189.59998559951782">
          <font>
             <Font size="30.0" />
          </font>
