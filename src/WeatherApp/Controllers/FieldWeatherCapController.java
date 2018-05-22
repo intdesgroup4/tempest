@@ -40,6 +40,7 @@ public class FieldWeatherCapController {
     private Text fHumidity;
     @FXML
     private Text fHumidityUnit;
+    /*
     @FXML
     private ImageView fTemperatureIcon;
     @FXML
@@ -50,7 +51,7 @@ public class FieldWeatherCapController {
     private ImageView fWindDirectionIcon;
     @FXML
     private ImageView fHumidityIcon;
-
+	*/
 
     private double convertTemp(Weather weather, SettingsStore settingsStore) {
         if (settingsStore.getTempUnit().equals("C"))
@@ -102,7 +103,7 @@ public class FieldWeatherCapController {
         fHumidity.setText(nf.format(weather.getHumidity()));
         fHumidityUnit.setText("%");
         
-        //Setting WeatherIcons:
+        /*Setting WeatherIcons:
         File tempIconFile = new File("resources/weather-symbols/TemperatureIcon.png");
         Image tempIcon = new Image(tempIconFile.toURI().toString());
         fTemperatureIcon.setImage(tempIcon);
@@ -122,7 +123,7 @@ public class FieldWeatherCapController {
         File HumidityIconFile = new File("resources/weather-symbols/HumidityIcon.png");
         Image HumidityIcon = new Image(HumidityIconFile.toURI().toString());
         fHumidityIcon.setImage(HumidityIcon);
-        
+        */
         
     }
 
