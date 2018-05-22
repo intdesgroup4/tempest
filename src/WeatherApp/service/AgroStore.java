@@ -26,9 +26,6 @@ import java.util.stream.Collectors;
  * - Caching API requests
  * - Persistence of Field objects (see Store for more info)
  * ... and should be the main way of accessing weather data of Fields throughout UI code.
- *
- * TODO write gson code to serialise/deserialise
- * TODO find a way to garbage collect irrelevant data (e.g. deleted Fields, past weather data)
  */
 public class AgroStore extends Store {
 
