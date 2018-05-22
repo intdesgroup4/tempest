@@ -31,6 +31,9 @@ public class MapController implements Initializable{
 
     private DefaultWaypoint waypoint;
 
+    /*
+    intialises the map for display with a deault waypoint at cambridge
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -40,6 +43,9 @@ public class MapController implements Initializable{
         MapCreator.createAndSetMapViewer(swingNode, waypoint);
     }
 
+    /*
+    returns to dashboard and cancels any changes
+     */
     @FXML
     public void cancelClicked() throws IOException{
         Stage stage = (Stage)pane.getScene().getWindow();
@@ -49,6 +55,9 @@ public class MapController implements Initializable{
         stage.show();
     }
 
+    /*
+    loads the next page and sends it the location
+     */
     @FXML
     public void doneClicked() throws IOException {
 

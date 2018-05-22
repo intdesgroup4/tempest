@@ -27,6 +27,9 @@ public class CoordinateController {
     @FXML
     private Text errorM;
 
+    /*
+    cancels the process and re-loads the dashboard
+     */
     @FXML
     public void cancelClicked() throws IOException {
         Stage stage = (Stage)cancelButton.getScene().getWindow();
@@ -36,6 +39,9 @@ public class CoordinateController {
         stage.show();
     }
 
+    /*
+    continues after the coordinates have been set
+     */
     @FXML
     public void doneClicked() throws IOException {
         try {
@@ -59,6 +65,9 @@ public class CoordinateController {
         }
     }
 
+    /*
+    generates a GeoPosition object from the values in the boxes
+     */
     private GeoPosition getPostion() throws InvalidCoordinateException {
         double lat,lng;
         try {

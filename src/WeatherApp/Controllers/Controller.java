@@ -33,6 +33,9 @@ public class Controller implements Initializable{
     private FieldStore store;
     private boolean editmode = false;
 
+    /*
+    initialize function called when dashboard is created, loads all of the fields from the store
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         store = new FieldStore(Paths.get("stores/fieldStore.json"));
@@ -43,6 +46,9 @@ public class Controller implements Initializable{
         }
     }
 
+    /*
+    Function switch between edit mode and normal mode when edit button is clicked
+     */
     @FXML
     private void editClicked() throws IOException{
         editmode = !editmode;
@@ -68,6 +74,10 @@ public class Controller implements Initializable{
         }
     }
 
+
+    /*
+    settingsClicked loads the settings page - triggered by the settings button
+     */
     @FXML
     private void settingsClicked() throws IOException {
         Stage stage = (Stage)addButton.getScene().getWindow();
@@ -77,6 +87,9 @@ public class Controller implements Initializable{
         stage.show();
     }
 
+    /*
+    addClicked loads the add field page - triggered by the Add field button
+     */
     @FXML
     private void addClicked() throws IOException{
         Stage stage = (Stage)addButton.getScene().getWindow();
@@ -86,6 +99,9 @@ public class Controller implements Initializable{
         stage.show();
     }
 
+    /*
+    Function that adds a farm to the list displayed
+     */
     public void addFarm(Field field) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/FieldCapsuleTemplate.fxml"));
         Node fieldCapNode = loader.load();
@@ -97,6 +113,9 @@ public class Controller implements Initializable{
         capController.setField(field);
     }
 
+    /*
+    Function that updates the display with each of the fields
+     */
     private void updatelist(List<Field> fieldlist) throws IOException {
         //updates the dashboard's field list by reading through the inputed fieldlist
         fList = fieldlist;
@@ -114,6 +133,9 @@ public class Controller implements Initializable{
                 @Override
                 public void handle(MouseEvent event) {
                     try {
+                        /*
+                        on click load the more info page
+                         */
                         Stage stage = (Stage) editButton.getScene().getWindow();
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenes/moreInfo.fxml"));
                         Parent root = loader.load();
@@ -142,10 +164,16 @@ public class Controller implements Initializable{
         dashboardList.setContent(dbContent);
     }
 
+    /*
+    sets the fList variable
+     */
     public void setfList(List<Field> fList) {
         this.fList = fList;
     }
 
+    /*
+    updates the dashboard for edit mode
+     */
     public void editupdate() throws IOException {
         //updates the edit panels
         VBox dbContentNew = new VBox();
@@ -162,6 +190,9 @@ public class Controller implements Initializable{
         dashboardList.setContent(dbContentNew);
     }
 
+    /*
+    removes a farm from the list
+     */
     public void removeFarm(Field field) throws IOException {
         fList.remove(field);
         editupdate();

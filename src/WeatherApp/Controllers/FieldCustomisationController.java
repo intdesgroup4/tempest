@@ -51,6 +51,9 @@ public class FieldCustomisationController {
     //default colour for a field is white
     private Color colour = Color.WHITE;
 
+    /*
+    cancels the process and returns to dashboard
+     */
     @FXML
     public void cancelClicked() throws IOException {
         Stage stage = (Stage)cancelButton.getScene().getWindow();
@@ -60,6 +63,10 @@ public class FieldCustomisationController {
         stage.show();
     }
 
+    /*
+    checks the values and creates the field object
+    then returns to the dashboard
+     */
     @FXML
     public void doneClicked() throws IOException {
     	if(nameInput.getText().length()>20) {
@@ -87,7 +94,10 @@ public class FieldCustomisationController {
         
 
     }
-    
+
+    /*
+    generates a colour picker for user selection
+     */
     public void colourClicked() throws Exception {
     	//bring up a new colourchooser window in which the user can select the colour of the field
     			Colourchooser cc = new Colourchooser();
@@ -101,7 +111,9 @@ public class FieldCustomisationController {
     			colourStage.initModality(Modality.APPLICATION_MODAL);
     			cc.start(colourStage);
     }
-    
+    /*
+    updates the panel with the selected color
+     */
     public void panelupdate(Color c) {
     	//takes in the colour from the colourchooser and updates the colour of the pane
     	colour = c;
@@ -109,6 +121,9 @@ public class FieldCustomisationController {
     	
     }
 
+    /*
+    sets the position
+     */
     public void setLoc(GeoPosition position) {
         loc = position;
     }
