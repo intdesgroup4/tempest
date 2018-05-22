@@ -136,6 +136,7 @@ public class FieldCapController implements Initializable{
 
             AgroStore agroStore = new AgroStore(Paths.get("stores/agroStore.json"), new AgroAPI(AgroAPI.loadApiKey()));
             Weather weather = agroStore.getCurrentWeather(field);
+            agroStore.save(); // save data to allow for caching
             fTemp.setText(nf.format(convertTemp(weather)));
             fTempUnit.setText(settingsStore.getTempUnitIcon());
             
