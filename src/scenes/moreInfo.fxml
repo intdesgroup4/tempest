@@ -21,7 +21,7 @@
                   <Font size="36.0" />
                </font>
             </Text>
-            <Pane prefHeight="48.0" prefWidth="35.0" />
+            <Pane prefHeight="0.0" prefWidth="20.0" />
             <Button mnemonicParsing="false" onAction="#refreshClicked" style="-fx-background-radius: 20; -fx-background-color: #00BCD4;" text="Refresh" textFill="WHITE">
                <font>
                   <Font size="20.0" />

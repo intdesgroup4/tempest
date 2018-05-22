@@ -28,9 +28,9 @@
             <Font size="30.0" />
          </font></Text>
         <ImageView fx:id="weatherIcon" fitHeight="61.0" fitWidth="61.0" layoutX="534.0" layoutY="5.0" />
-        <Text fx:id="fTemp" fill="WHITE" layoutX="50.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17" wrappingWidth="76.85302734375">
+        <Text fx:id="fTemp" fill="WHITE" layoutX="25.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="17" textAlignment="RIGHT" wrappingWidth="102.00000554323196">
             <font>
-                <Font size="50.0" />
+                <Font size="40.0" />
             </font>
         </Text>
         <Text fx:id="fTempUnit" fill="WHITE" layoutX="88.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="K">
@@ -38,7 +38,7 @@
                 <Font size="27.0" />
             </font>
         </Text>
-        <Text fx:id="fRain" fill="WHITE" layoutX="164.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" wrappingWidth="76.85302734375">
+        <Text fx:id="fRain" fill="WHITE" layoutX="154.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" textAlignment="RIGHT" wrappingWidth="76.85302734375">
             <font>
                 <Font size="50.0" />
             </font>
@@ -48,9 +48,9 @@
                 <Font size="25.0" />
             </font>
         </Text>
-        <Text fx:id="fWindspeed" fill="WHITE" layoutX="287.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" wrappingWidth="76.85302734375">
+        <Text fx:id="fWindspeed" fill="WHITE" layoutX="281.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" textAlignment="RIGHT" wrappingWidth="76.85302734375">
             <font>
-                <Font size="50.0" />
+                <Font size="40.0" />
             </font>
         </Text>
       <Text fx:id="tDate" fill="WHITE" layoutX="10.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="136.00001001358032">
@@ -58,7 +58,7 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <Text fx:id="fWindDirection" fill="WHITE" layoutX="401.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" wrappingWidth="76.85302734375">
+      <Text fx:id="fWindDirection" fill="WHITE" layoutX="404.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" wrappingWidth="76.85302734375">
          <font>
             <Font size="50.0" />
          </font>
@@ -78,10 +78,10 @@
             <Font size="23.0" />
          </font>
       </Text>
-      <ImageView fx:id="fTemperatureIcon" fitHeight="90.0" fitWidth="43.0" layoutX="10.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="fRainfallIcon" fitHeight="90.0" fitWidth="43.0" layoutX="121.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="fWindSpeedIcon" fitHeight="90.0" fitWidth="43.0" layoutX="247.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="fWindDirectionIcon" fitHeight="90.0" fitWidth="43.0" layoutX="358.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="fHumidityIcon" fitHeight="90.0" fitWidth="43.0" layoutX="478.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="fTemperatureIcon" fitHeight="67.0" fitWidth="30.0" layoutX="7.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" />
+      <ImageView fx:id="fRainfallIcon" fitHeight="67.0" fitWidth="43.0" layoutX="133.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="fWindSpeedIcon" fitHeight="67.0" fitWidth="43.0" layoutX="242.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="fWindDirectionIcon" fitHeight="67.0" fitWidth="43.0" layoutX="358.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="fHumidityIcon" fitHeight="61.0" fitWidth="30.0" layoutX="482.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8" />
     </children>
 </Pane>

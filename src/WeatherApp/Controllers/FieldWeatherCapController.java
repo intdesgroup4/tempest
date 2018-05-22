@@ -107,6 +107,22 @@ public class FieldWeatherCapController {
         Image tempIcon = new Image(tempIconFile.toURI().toString());
         fTemperatureIcon.setImage(tempIcon);
         
+        File RainfallIconFile = new File("resources/weather-symbols/RainfallIcon.png");
+        Image RainfallIcon = new Image(RainfallIconFile.toURI().toString());
+        fRainfallIcon.setImage(RainfallIcon);
+        
+        File WindSpeedIconFile = new File("resources/weather-symbols/WindSpeedIcon.png");
+        Image WindSpeedIcon = new Image(WindSpeedIconFile.toURI().toString());
+        fWindSpeedIcon.setImage(WindSpeedIcon);
+        
+        File WindDirectionIconFile = new File("resources/weather-symbols/WindDirectionIcon.png");
+        Image WindDirectionIcon = new Image(WindDirectionIconFile.toURI().toString());
+        fWindDirectionIcon.setImage(WindDirectionIcon);
+        
+        File HumidityIconFile = new File("resources/weather-symbols/HumidityIcon.png");
+        Image HumidityIcon = new Image(HumidityIconFile.toURI().toString());
+        fHumidityIcon.setImage(HumidityIcon);
+        
         
     }
 

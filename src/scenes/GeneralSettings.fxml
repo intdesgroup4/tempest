@@ -21,7 +21,7 @@
                   <Font size="37.0" />
                </font>
             </Text>
-            <Pane prefHeight="50.0" prefWidth="143.0" />
+            <Pane prefHeight="50.0" prefWidth="135.0" />
           <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveClicked" style="-fx-background-color: #8BC34A; -fx-background-radius: 20;" text="Save" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="20.0" />
@@ -84,7 +84,7 @@
                      </font>
                   </Text>
                   <Pane prefHeight="72.0" prefWidth="158.0" />
-                  <Slider fx:id="intervalFrequencySlider" min="3"  max="12.0" prefHeight="25.0" prefWidth="170" scaleX="2.0" scaleY="2.0" snapToTicks="true" style="-fx-background-color: #B2EBF2; -fx-background-radius: 20;" />
+                  <Slider fx:id="intervalFrequencySlider" max="12.0" min="3" prefHeight="25.0" prefWidth="170" scaleX="2.0" scaleY="2.0" snapToTicks="true" style="-fx-background-color: #B2EBF2; -fx-background-radius: 20;" />
                </children>
             </HBox>
          </children>
