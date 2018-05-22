@@ -34,9 +34,12 @@ public class FieldCapController implements Initializable{
     @FXML private Text latitude;
     @FXML private Text longitude;
     @FXML private Rectangle fColour;
+    @FXML private ImageView WeatherIcon;
+    /* Removed icons
     @FXML private ImageView TemperatureIcon;
     @FXML private ImageView RainfallIcon;
     @FXML private ImageView WindSpeedIcon;
+    */
     
     private Field field;
     private SettingsStore settingsStore;
@@ -87,6 +90,7 @@ public class FieldCapController implements Initializable{
         longitude.setText(Double.toString(field.getLng()).substring(0, 8));
         fName.setText(field.getName());
         
+        /* Removed icons
         //set the icons/weather symbols:
         File tempIconFile = new File("resources/weather-symbols/TemperatureIcon.png");
         Image itempIcon = new Image(tempIconFile.toURI().toString());
@@ -99,6 +103,7 @@ public class FieldCapController implements Initializable{
         File WindSpeedIconFile = new File("resources/weather-symbols/WindSpeedIcon.png");
         Image iWindSpeedIcon = new Image(WindSpeedIconFile.toURI().toString());
         WindSpeedIcon.setImage(iWindSpeedIcon);
+        */
     }
 
     public void setSettingsStore(SettingsStore settingsStore) {
@@ -133,6 +138,10 @@ public class FieldCapController implements Initializable{
             Weather weather = agroStore.getCurrentWeather(field);
             fTemp.setText(nf.format(convertTemp(weather)));
             fTempUnit.setText(settingsStore.getTempUnitIcon());
+            
+            Image WetIconim = weather.getConditions().get(0).getDayIcon();
+            WeatherIcon.setImage(WetIconim);
+            
             if(Double.isNaN(weather.getRainfall()))
                 fRain.setText("0");
             else
