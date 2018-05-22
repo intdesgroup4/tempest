@@ -63,6 +63,11 @@ public class AgroStore extends Store {
         super(path);
 
         this.api = api;
+
+        if (weathers == null) {
+            // weathers may not be assumed to be initialised in deserialise - the store file may not exist yet
+            weathers = new HashMap<>();
+        }
     }
 
     /**

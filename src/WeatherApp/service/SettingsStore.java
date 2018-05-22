@@ -7,13 +7,34 @@ import com.google.gson.JsonObject;
 import java.nio.file.Path;
 
 public class SettingsStore extends Store {
-    private int frequency;
+    private Integer frequency;
     private String tempUnit;
     private String windUnit;
-    private boolean notifications;
+    private Boolean notifications;
 
     public SettingsStore(Path path){
         super(path);
+
+        // create defaults if deserialise didn't populate the variables
+        if (frequency == null) {
+            // every 12 hours
+            frequency = 12;
+        }
+
+        if (tempUnit == null) {
+            // celsius
+            tempUnit = "C";
+        }
+
+        if (windUnit == null) {
+            // metres per second
+            windUnit = "m/s";
+        }
+
+        if (notifications == null) {
+            // no notifications
+            notifications = false;
+        }
     }
 
     @Override
